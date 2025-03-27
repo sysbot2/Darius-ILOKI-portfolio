@@ -1,5 +1,5 @@
 /* Style global pour body */
-body {  
+body {
     background-color: white;
     background-size: cover;
     background-attachment: fixed;
@@ -7,23 +7,31 @@ body {
     flex-direction: column;
     margin: 0;
     padding: 0;
-    height: 100vh; /* Utilise 100vh pour prendre toute la hauteur de la fenêtre */
+    padding-top: 60px; /* Ajuster selon la hauteur du header */
+    padding-bottom: 80px; /* Ajuster selon la hauteur du footer */
+    min-height: 100vh; /* Changé de height à min-height */
     font-family: 'Manrope', 'Montserrat', sans-serif;
+}
+
+main {
+    flex: 1 0 auto; /* Permet au main de s'étendre entre header et footer */
+    padding-top:5 px; /* Optionnel: ajoute un peu d'espace interne */
 }
 
 /* Style pour header */
 header {
-    background-image:url(images/cs.png);
+    background-image: url(images/cs.png);
     width: 100%;
-    position: fixed; /* Fixe en haut */
-    top: 0; /* Aligne en haut */
+    position: fixed; /* Déjà présent mais confirmé */
+    top: 0;
     left: 0;
     font-family: 'Manrope', sans-serif;
     font-size: 1.5em;
     background-color: white;
     padding: 10px;
     text-align: center;
-    z-index: 1000; /* Pour s'assurer que le header est toujours visible au-dessus */
+    z-index: 1000;
+    box-sizing: border-box; /* Ajouté pour inclure le padding dans la largeur */
 }
 
 #background-video {
@@ -39,17 +47,18 @@ header {
 /* Style pour footer */
 footer {
     color: white;
-    background-image:url(images/cs.png);
+    background-image: url(images/cs.png);
     background-size: cover;
-    background-attachment: fixed;
     font-family: 'Manrope', sans-serif;
     font-size: 1.5em;
     width: 100%;
     text-align: center;
-    padding: 20px;
-    margin-top: auto; /* Permet au footer de se placer en bas */
+    position: fixed; /* Changé de margin-top à position: fixed */
+    bottom: 0; /* Ajouté pour fixer en bas */
+    left: 0; /* Ajouté pour aligner à gauche */
+    z-index: 1000; /* Ajouté pour rester au-dessus du contenu */
+    box-sizing: border-box; /* Ajouté pour inclure le padding dans la largeur */
 }
-
 /* Lien (a) */
 a {
     color: white;
@@ -191,7 +200,7 @@ p, h1, h3, h4, h6, .pro, .site, .ct, .tkt, .center, .lien, .Contact {
 
 /* Conteneur principal .tokoss */
 .tokoss {
-    height: 88%;
+    height: 88;
     background-size: cover;
     color: white;
     position: relative;
@@ -464,160 +473,178 @@ span {
     animation: slide-in 1.5s ease-out;
 }
 
-/* Écrans de projection (résolution Full HD ou plus, 1920px et plus) */
-@media (min-width: 1920px) {
+/* Très petits écrans (smartphones, jusqu'à 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 50px 10px 60px 10px; /* Réduction du padding */
+    }
+    
+    header, footer {
+        font-size: 1em; /* Réduction de la taille de police */
+        padding: 8px;
+    }
+    
+    h1 {
+        font-size: 2.5em; /* Réduction significative */
+        padding: 30px;
+    }
+    
     .site {
-        width: 8%;
+        width: 100%;
+        font-size: 1em;
     }
-    .tokoss {
-        flex-direction: row;
-        justify-content: space-between;
+    
+    .ob, .oc {
+        width: 150px;
+        height: 150px;
+        padding: 8px;
     }
-    .tokoss2, .tokoss3, .tokoss6 {
-        flex-direction: row;
-        justify-content: space-around;
+    
+    .tokoss, .tokoss2, .tokoss3, .tokoss4, .tokoss5, .tokoss6 {
+        flex-direction: column;
+        gap: 10px;
     }
+    
+    .ecole, .Contact {
+        margin-left: 2%;
+        margin-right: 2%;
+        font-size: 1.1em;
+    }
+    
+    input, textarea {
+        width: 100%;
+        font-size: 1em;
+        padding: 10px;
+    }
+    
     .t {
+        font-size: 1.5em;
+    }
+}
+
+/* Petits écrans (smartphones, 481px à 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+    body {
+        padding: 60px 15px 70px 15px;
+    }
+    
+    header, footer {
+        font-size: 1.2em;
+    pê
+    
+    h1 {
+        font-size: 3em;
+        padding: 40px;
+    }
+    
+    .site {
+        width: 80%;
+        font-size: 1.1em;
+    }
+    
+    .ob, .oc {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .tokoss, .tokoss2, .tokoss3, .tokoss4, .tokoss5, .tokoss6 {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .t {
+        font-size: 1.8em;
+    }
+}
+
+/* Tablettes (768px à 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    body {
+        padding: 60px 20px 80px 20px;
+    }
+    
+    header, footer {
+        font-size: 1.3em;
+    }
+    
+    h1 {
+        font-size: 3.5em;
+        padding: 50px;
+    }
+    
+    .site {
+        width: 50%;
+    }
+    
+    .ob, .oc {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .tokoss, .tokoss2, .tokoss3, .tokoss4, .tokoss5, .tokoss6 {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .t {
+        font-size: 2em;
+    }
+}
+
+/* Bureaux moyens (1024px à 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    body {
+        padding: 60px 30px 80px 30px;
+    }
+    
+    header, footer {
+        font-size: 1.4em;
+    }
+    
+    h1 {
         font-size: 4em;
     }
-}
-
-/* Écrans ultra larges (résolution 4K, 3840px et plus) */
-@media (min-width: 3840px) {
+    
     .site {
-        width: 6%;
+        width: 30%;
     }
-    .tokoss {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .tokoss2, .tokoss3, .tokoss6 {
-        flex-direction: row;
-        justify-content: space-around;
-    }
-    .t {
-        font-size: 5em;
-    }
-}
-
-/* Très grands écrans (au-delà de 1600px) */
-@media (min-width: 1600px) {
-    .site {
-        width: 10%;
-    }
-    .tokoss {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .tokoss2, .tokoss3, .tokoss6 {
-        flex-direction: row;
-        justify-content: space-around;
-    }
-    .t {
-        font-size: 3.5em;
-    }
-}
-
-/* Pour les grands écrans (larges écrans de bureau) */
-@media (min-width: 1200px) {
-    .site {
-        width: 15%;
-    }
-    .tokoss {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .tokoss2, .tokoss3, .tokoss6 {
-        flex-direction: row;
-        justify-content: space-around;
-    }
-    .t {
-        font-size: 3em;
-    }
-}
-
-/* Pour les tablettes (entre 768px et 1200px) */
-@media (max-width: 1200px) and (min-width: 768px) {
-    .site {
-        width: 25%;
-    }
-    .tokoss {
-        flex-direction: column;
-    }
-    .tokoss2, .tokoss3, .tokoss6 {
-        flex-direction: column;
-    }
+    
     .t {
         font-size: 2.5em;
     }
 }
 
-/* Pour les tablettes en mode portrait (600px à 768px) */
-@media (max-width: 768px) and (min-width: 600px) {
+/* Grands écrans (1440px à 1919px) */
+@media (min-width: 1440px) and (max-width: 1919px) {
     .site {
-        width: 60%;
-        font-size: 1.2em;
+        width: 20%;
     }
-    .tokoss {
-        flex-direction: column;
-    }
-    .tokoss2, .tokoss3, .tokoss6 {
-        flex-direction: column;
-    }
+    
     .t {
-        font-size: 2.2em;
+        font-size: 3em;
     }
 }
 
-/* Pour les petits écrans (smartphones, moins de 768px) */
-@media (max-width: 768px) {
-    body {
-        background-size: cover;
-        padding: 20px;
-    }
-    header, footer {
-        font-size: 1.2em;
-    }
+/* Très grands écrans (1920px et plus) */
+@media (min-width: 1920px) {
     .site {
-        width: 80%;
-        font-size: 1.2em;
+        width: 15%;
     }
-    .tokoss, .tokoss2, .tokoss3, .tokoss6 {
-        flex-direction: column;
-    }
+    
     .t {
-        font-size: 2em;
-    }
-    .ecole {
-        height: auto;
-        padding: 20px;
-    }
-    textarea, input {
-        width: 100%;
+        font-size: 3.5em;
     }
 }
 
-/* Pour les très petits écrans (smartphones, moins de 480px) */
-@media (max-width: 480px) {
+/* Écrans ultra larges (4K, 3840px et plus) */
+@media (min-width: 3840px) {
     .site {
-        width: 90%;
-        font-size: 1.1em;
+        width: 10%;
     }
-    .tokoss {
-        flex-direction: column;
-    }
-    .tokoss2, .tokoss3, .tokoss6 {
-        flex-direction: column;
-    }
+    
     .t {
-        font-size: 1.8em;
-    }
-    .ecole {
-        padding: 10px;
-    }
-    textarea, input {
-        width: 100%;
-        font-size: 1.1em;
+        font-size: 5em;
     }
 }
 
@@ -665,7 +692,7 @@ span {
 }
 
 .ot{
-    font-size: 1.4em;
+    font-size: 3em;
     font-family: 'Manrope', sans-serif;
     margin-left: 4%;
     margin-right: 4%;
