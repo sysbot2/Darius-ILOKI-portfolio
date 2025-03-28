@@ -7,22 +7,21 @@ body {
     flex-direction: column;
     margin: 0;
     padding: 0;
-    padding-top: 60px; /* Ajuster selon la hauteur du header */
-    padding-bottom: 80px; /* Ajuster selon la hauteur du footer */
-    min-height: 100vh; /* Changé de height à min-height */
+    min-height: 100vh;
     font-family: 'Manrope', 'Montserrat', sans-serif;
 }
 
 main {
-    flex: 1 0 auto; /* Permet au main de s'étendre entre header et footer */
-    padding-top:5 px; /* Optionnel: ajoute un peu d'espace interne */
+    flex: 1;
+    padding-top: 80px; /* Ajuste selon la hauteur du header */
+    padding-bottom: 0px;
+    position: relative;
 }
 
-/* Style pour header */
 header {
     background-image: url(images/cs.png);
     width: 100%;
-    position: fixed; /* Déjà présent mais confirmé */
+    position: fixed;
     top: 0;
     left: 0;
     font-family: 'Manrope', sans-serif;
@@ -31,9 +30,8 @@ header {
     padding: 10px;
     text-align: center;
     z-index: 1000;
-    box-sizing: border-box; /* Ajouté pour inclure le padding dans la largeur */
+    height: 60px; /* Ajuste selon ton design */
 }
-
 #background-video {
     position: absolute;
     top: 0;
@@ -49,15 +47,12 @@ footer {
     color: white;
     background-image: url(images/cs.png);
     background-size: cover;
+    background-attachment: fixed;
     font-family: 'Manrope', sans-serif;
     font-size: 1.5em;
     width: 100%;
     text-align: center;
-    position: fixed; /* Changé de margin-top à position: fixed */
-    bottom: 0; /* Ajouté pour fixer en bas */
-    left: 0; /* Ajouté pour aligner à gauche */
-    z-index: 1000; /* Ajouté pour rester au-dessus du contenu */
-    box-sizing: border-box; /* Ajouté pour inclure le padding dans la largeur */
+    padding: 0px;
 }
 /* Lien (a) */
 a {
@@ -325,9 +320,9 @@ p, h1, h3, h4, h6, .pro, .site, .ct, .tkt, .center, .lien, .Contact {
     background-size: cover;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    justify-content: space-around;
     
-    gap: 10%;
+    gap: 2%;
     flex-wrap: wrap;
 }
 
