@@ -31,19 +31,20 @@ body {
 }
 
 header {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.5em;
     background-image: url(images/cs.png);
-    width: 100%;
+    padding: 0; /* Pas de padding interne pour aligner les liens */
+    text-align: center;
     position: fixed;
     top: 0;
     left: 0;
-    font-family: 'Manrope', sans-serif;
-    font-size: 1.5em;
-    background-color: white;
-    padding: 10px;
-    text-align: center;
+    width: 100%;
     z-index: 1000;
-    height: 60px;
-    box-sizing: border-box; /* Inclut le padding dans la largeur */
+    height: 60px; /* Hauteur fixe */
+    display: flex; /* Ajouté pour aligner les liens horizontalement */
+    justify-content: center;
+    align-items: center;
 }
 
 main {
