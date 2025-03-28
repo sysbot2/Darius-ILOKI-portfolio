@@ -11,7 +11,7 @@
 }
 
 /* Appliquer l'animation à tout le texte de la page */
-h1, p, h3, h6, a {
+h1, p, h3, h6 {
     animation: slideIn 1.5s ease-out forwards; /* Durée uniforme de 1.5s */
 }
 
@@ -31,20 +31,19 @@ body {
 }
 
 header {
-    font-family: 'Manrope', sans-serif;
-    font-size: 1.5em;
     background-image: url(images/cs.png);
-    padding: 0; /* Pas de padding interne pour aligner les liens */
-    text-align: center;
+    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.5em;
+    background-color: white;
+    padding: 10px;
+    text-align: center;
     z-index: 1000;
-    height: 60px; /* Hauteur fixe */
-    display: flex; /* Ajouté pour aligner les liens horizontalement */
-    justify-content: center;
-    align-items: center;
+    height: 60px;
+    box-sizing: border-box; /* Inclut le padding dans la largeur */
 }
 
 main {
