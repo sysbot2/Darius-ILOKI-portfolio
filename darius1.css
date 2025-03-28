@@ -11,13 +11,6 @@ body {
     font-family: 'Manrope', 'Montserrat', sans-serif;
 }
 
-main {
-    flex: 1;
-    padding-top: 80px; /* Ajuste selon la hauteur du header */
-    padding-bottom: 0px;
-    position: relative;
-}
-
 header {
     background-image: url(images/cs.png);
     width: 100%;
@@ -27,22 +20,29 @@ header {
     font-family: 'Manrope', sans-serif;
     font-size: 1.5em;
     background-color: white;
-    padding: 10px;
+    padding: 0px;
     text-align: center;
     z-index: 1000;
-    height: 60px; /* Ajuste selon ton design */
+    height: 60px; /* Hauteur fixe pour cohérence avec padding-top de main */
 }
+
+main {
+    flex: 1; /* Remplit l'espace entre header et footer */
+    padding-top: 4px; /* Compense la hauteur du header (60px + 10px padding + marge) */
+    padding-bottom: 4px; /* Ajoute un espace en bas pour ne pas coller au footer */
+    position: relative;
+}
+
 #background-video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Pour s'assurer que la vidéo couvre tout l'arrière-plan sans déformation */
-    z-index: -1; /* Placer la vidéo derrière le contenu */
+    object-fit: cover;
+    z-index: -1; /* Derrière le contenu de main */
 }
 
-/* Style pour footer */
 footer {
     color: white;
     background-image: url(images/cs.png);
@@ -52,8 +52,9 @@ footer {
     font-size: 1.5em;
     width: 100%;
     text-align: center;
-    padding: 0px;
+    padding: 2px; /* Rétablit un padding pour lisibilité */
 }
+
 /* Lien (a) */
 a {
     color: white;
@@ -67,7 +68,7 @@ a:visited {
 }
 
 /* Paragraphe (p) */
-p, h4{
+p, h4 {
     margin-left: 4%;
     margin-right: 4%;
     color: black;
@@ -76,12 +77,10 @@ p, h4{
     text-align: justify;
 }
 
-
-
-h2{
+h2 {
     font-size: 2em;
     font-weight: bold;
-    font-family:'Manrope', sans-serif;
+    font-family: 'Manrope', sans-serif;
 }
 
 /* Titres (h1, h3, h4, h6) */
@@ -122,7 +121,6 @@ p, h1, h3, h4, h6, .pro, .site, .ct, .tkt, .center, .lien, .Contact {
     font-weight: 900;
 }
 
-/* Style pour les éléments avec la classe .site */
 .site {
     font-family: 'Manrope', sans-serif;
     font-size: 1.3em;
@@ -131,7 +129,6 @@ p, h1, h3, h4, h6, .pro, .site, .ct, .tkt, .center, .lien, .Contact {
     border-radius: 50%;
     border: 2px solid whitesmoke;
     box-shadow: 6px 6px 30px whitesmoke;
-    
 }
 
 .site:hover {
@@ -153,49 +150,40 @@ p, h1, h3, h4, h6, .pro, .site, .ct, .tkt, .center, .lien, .Contact {
     margin-right: 2%;
 }
 
-.occ{
-
+.occ {
     width: 300px;
     height: 300px;
     border-radius: 50%;
     margin: 0;
     padding: 16px;
     animation: slide-in 2.5s ease-out;
-    margin-left:20%;
-
+    margin-left: 20%;
 }
 
-.oc{
+.oc {
     width: 300px;
     height: 300px;
     border-radius: 50%;
     margin: 0;
     padding: 16px;
     animation: slide-in 2.5s ease-out;
-    margin-top:4%;
-    margin-left:15%;
-
-
+    margin-top: 4%;
+    margin-left: 15%;
 }
 
-
-
-
-
-
-
-.t, .pro{
+.t, .pro {
     margin-right: 4%;
     margin-left: 4%;
     text-align: center;
 }
+
 .top:hover {
     opacity: 0.5;
 }
 
 /* Conteneur principal .tokoss */
 .tokoss {
-    height: 88;
+    /* height: 88; <- Erreur corrigée, soit supprimer soit ajouter une unité */
     background-size: cover;
     color: white;
     position: relative;
@@ -206,7 +194,7 @@ p, h1, h3, h4, h6, .pro, .site, .ct, .tkt, .center, .lien, .Contact {
     gap: 5px;
     flex-wrap: wrap;
     box-shadow: 2px 2px 3px;
-    z-index:1 ;
+    z-index: 1;
 }
 
 /* Flex column conteneur .tokoss3 */
@@ -218,10 +206,7 @@ p, h1, h3, h4, h6, .pro, .site, .ct, .tkt, .center, .lien, .Contact {
     flex-direction: row;
     justify-content: space-around;
     justify-items: center;
-    /*gap: 2px;
-    margin-top: 2%;*/
 }
-
 
 /* Conteneur flex pour les éléments de .tokoss2 */
 .tokoss2 {
@@ -238,15 +223,14 @@ p, h1, h3, h4, h6, .pro, .site, .ct, .tkt, .center, .lien, .Contact {
     font-size: 2.5em;
 }
 
-.u{
+.u {
     color: white;
     margin-top: 2%;
     text-align: center;
     font-size: 2.5em;
 }
 
-
-.vm{
+.vm {
     border: solid 10px rgb(182, 181, 181);
     width: 40%;
     margin: 5px;
@@ -258,17 +242,20 @@ p, h1, h3, h4, h6, .pro, .site, .ct, .tkt, .center, .lien, .Contact {
     color: black;
 }
 
-.lien {margin-top: 5%;}
+.lien {
+    margin-top: 5%;
+}
 
 .lien a {
     background-image: url(images/h1.png);
     color: white;
 }
-.veille{
+
+.veille {
     position: relative;
 }
 
-.open{
+.open {
     border: solid 10px rgb(182, 181, 181);
     width: 40%;
     margin: 5px;
@@ -276,17 +263,17 @@ p, h1, h3, h4, h6, .pro, .site, .ct, .tkt, .center, .lien, .Contact {
     font-size: 1.4em;
 }
 
-.dh{
+.dh {
     margin-left: 15%;
     margin-right: 2%;
     color: white;
 }
 
-.tkt{
+.tkt {
     color: black;
 }
 
-.ov{
+.ov {
     width: 300px;
     height: 300px;
     border-radius: 50%;
@@ -296,37 +283,15 @@ p, h1, h3, h4, h6, .pro, .site, .ct, .tkt, .center, .lien, .Contact {
     margin: auto;
 }
 
-.tokoss4 {
+.tokoss4, .tokoss5, .tokoss6 {
     background-size: cover;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    
-    gap: 2%;
-    flex-wrap: wrap;
-}
-.tokoss5{
-    background-size: cover;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    
     gap: 2%;
     flex-wrap: wrap;
 }
 
-
-.tokoss6{
-    background-size: cover;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    
-    gap: 2%;
-    flex-wrap: wrap;
-}
-
-/* Section "école" */
 .ecole {
     margin-left: 4%;
     margin-right: 4%;
@@ -336,16 +301,13 @@ p, h1, h3, h4, h6, .pro, .site, .ct, .tkt, .center, .lien, .Contact {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
 }
 
-/* Textarea */
 textarea {
     width: 400px;
     height: 200px;
 }
 
-/* Input */
 input {
     font-size: 1.4em;
     font-family: 'Manrope', sans-serif;
@@ -353,12 +315,10 @@ input {
     padding: 20px;
 }
 
-/* Label */
 label {
     font-weight: bolder;
 }
 
-/* Contact section */
 .Contact {
     display: flex;
     flex-direction: column;
@@ -366,7 +326,6 @@ label {
     flex-wrap: wrap;
 }
 
-/* Conteneur avec flex pour les sections */
 .conteneur {
     font-size: 1.4em;
     font-family: 'Manrope', sans-serif;
@@ -374,22 +333,10 @@ label {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    gap:10% ;
+    gap: 10%;
     flex-wrap: wrap;
 }
 
-/* Liste */
-/*ul {
-    font-size: 1.2em;
-    font-family: 'Manrope', sans-serif;
-    margin: 16px;
-    color: black;
-    padding: 16px;
-    text-align: center;
-    text-align: justify;
-}
-
-/* Box */
 .box {
     border: solid 10px rgb(182, 181, 181);
     width: 40%;
@@ -397,7 +344,6 @@ label {
     box-shadow: 6px 6px 15px 10px rgb(245, 244, 244);
 }
 
-/* Texte aligné au centre */
 .pro {
     color: white;
     margin-left: 4%;
@@ -414,18 +360,14 @@ label {
     font-size: 1.4em;
     font-family: 'Manrope', sans-serif;
     text-align: justify;
-
 }
 
-/* Span (texte gras) */
 span {
     font-size: 1em;
     font-family: 'Manrope', sans-serif;
-
     font-weight: bold;
 }
 
-/* Cercles avec texte centré */
 .ct {
     background-image: url(images/h1.png);
     font-size: 1.7em;
@@ -442,16 +384,14 @@ span {
     justify-content: center;
 }
 
-.tkt a{
+.tkt a {
     color: white;
 }
 
-.ct:hover{
-    color:rgb(67, 36, 177);
+.ct:hover {
+    color: rgb(67, 36, 177);
 }
 
-
-/* Conteneur flex wrap */
 .tkt {
     display: flex;
     flex-wrap: wrap;
@@ -460,190 +400,159 @@ span {
     margin-top: 5%;
 }
 
-
-
-
-
-.center{
+.center {
     animation: slide-in 1.5s ease-out;
 }
 
-/* Très petits écrans (smartphones, jusqu'à 480px) */
+/* Media Queries */
 @media (max-width: 480px) {
     body {
-        padding: 50px 10px 60px 10px; /* Réduction du padding */
+        padding: 50px 10px 60px 10px;
     }
-    
     header, footer {
-        font-size: 1em; /* Réduction de la taille de police */
+        font-size: 1em;
         padding: 8px;
     }
-    
     h1 {
-        font-size: 2.5em; /* Réduction significative */
+        font-size: 2.5em;
         padding: 30px;
     }
-    
     .site {
         width: 100%;
         font-size: 1em;
     }
-    
     .ob, .oc {
         width: 150px;
         height: 150px;
         padding: 8px;
     }
-    
     .tokoss, .tokoss2, .tokoss3, .tokoss4, .tokoss5, .tokoss6 {
         flex-direction: column;
         gap: 10px;
     }
-    
     .ecole, .Contact {
         margin-left: 2%;
         margin-right: 2%;
         font-size: 1.1em;
     }
-    
     input, textarea {
         width: 100%;
         font-size: 1em;
         padding: 10px;
     }
-    
     .t {
         font-size: 1.5em;
     }
+    .ot {
+        font-size: 1.5em; /* Réduction pour petits écrans */
+    }
 }
 
-/* Petits écrans (smartphones, 481px à 767px) */
 @media (min-width: 481px) and (max-width: 767px) {
     body {
         padding: 60px 15px 70px 15px;
     }
-    
     header, footer {
         font-size: 1.2em;
-    pê
-    
+    }
     h1 {
         font-size: 3em;
         padding: 40px;
     }
-    
     .site {
         width: 80%;
         font-size: 1.1em;
     }
-    
     .ob, .oc {
         width: 200px;
         height: 200px;
     }
-    
     .tokoss, .tokoss2, .tokoss3, .tokoss4, .tokoss5, .tokoss6 {
         flex-direction: column;
         gap: 15px;
     }
-    
     .t {
         font-size: 1.8em;
     }
+    .ot {
+        font-size: 2em;
+    }
 }
 
-/* Tablettes (768px à 1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
     body {
         padding: 60px 20px 80px 20px;
     }
-    
     header, footer {
         font-size: 1.3em;
     }
-    
     h1 {
         font-size: 3.5em;
         padding: 50px;
     }
-    
     .site {
         width: 50%;
     }
-    
     .ob, .oc {
         width: 250px;
         height: 250px;
     }
-    
     .tokoss, .tokoss2, .tokoss3, .tokoss4, .tokoss5, .tokoss6 {
         flex-direction: row;
         flex-wrap: wrap;
         gap: 20px;
     }
-    
     .t {
         font-size: 2em;
     }
 }
 
-/* Bureaux moyens (1024px à 1439px) */
 @media (min-width: 1024px) and (max-width: 1439px) {
     body {
         padding: 60px 30px 80px 30px;
     }
-    
     header, footer {
         font-size: 1.4em;
     }
-    
     h1 {
         font-size: 4em;
     }
-    
     .site {
         width: 30%;
     }
-    
     .t {
         font-size: 2.5em;
     }
 }
 
-/* Grands écrans (1440px à 1919px) */
 @media (min-width: 1440px) and (max-width: 1919px) {
     .site {
         width: 20%;
     }
-    
     .t {
         font-size: 3em;
     }
 }
 
-/* Très grands écrans (1920px et plus) */
 @media (min-width: 1920px) {
     .site {
         width: 15%;
     }
-    
     .t {
         font-size: 3.5em;
     }
 }
 
-/* Écrans ultra larges (4K, 3840px et plus) */
 @media (min-width: 3840px) {
     .site {
         width: 10%;
     }
-    
     .t {
         font-size: 5em;
     }
 }
 
-.box{
+.box {
     font-family: 'Manrope', sans-serif;
     border: solid 10px rgb(182, 181, 181);
     width: 40%;
@@ -654,57 +563,53 @@ span {
     box-sizing: border-box;
 }
 
-.conteneur{
+.conteneur {
     font-family: 'Manrope', sans-serif;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    
     gap: 0%;
     flex-wrap: wrap;
-    animation: slideIn 1.5s ease-out forwards; /* Ajout de l'animation ici */
+    animation: slide-in 1.5s ease-out forwards;
 }
 
-.bts{
+.bts {
     background-image: url(images/h1.png);
     margin: 0;
     padding: 70px;
     font-size: 5em;
     font-family: "Manrope", sans-serif;
-    color: White;
+    color: white;
     text-align: center;
-
 }
-.tt{
+
+.tt {
     font-family: 'Manrope', sans-serif;
     font-size: 2.5em;
     margin-right: 5%;
     color: black;
     text-align: center;
-    font-weight: border;
-    ;
-    /*text-align: center;*/
+    font-weight: bold; /* Correction de "border" en "bold" */
 }
 
-.ot{
-    font-size: 3em;
+.ot {
+    font-size: 1.4em; /* Réduction de 3em pour éviter les débordements */
     font-family: 'Manrope', sans-serif;
     margin-left: 4%;
     margin-right: 4%;
     color: black;
     padding: 16px;
-    text-align: center;
-    text-align: justify;
+    text-align: justify; /* Suppression de "center" pour cohérence */
 }
 
 .ot1 {
     font-size: 1em;
     font-family: 'Manrope', sans-serif;
     color: black;
-    margin: 0; /* Supprime les marges externes */
-    padding: 0; /* Supprime les espacements internes */
-    text-align: left; /* Change l'alignement à gauche pour éviter les espaces excessifs */
-    line-height: 1.4; /* Ajoute un espacement entre les lignes pour une meilleure lisibilité */
-    word-spacing: normal; /* Réinitialise l'espacement entre les mots */
-    letter-spacing: normal; /* Réinitialise l'espacement entre les lettres */
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    line-height: 1.4;
+    word-spacing: normal;
+    letter-spacing: normal;
 }
