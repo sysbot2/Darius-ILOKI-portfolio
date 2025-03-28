@@ -435,7 +435,7 @@ span {
 
 .ct {
     background-image: url(images/h1.png); /* Fond pour les boutons */
-    font-size: 1.2em; /* Taille de police */
+    font-size: 1.7em; /* Taille de police */
     font-family: 'Manrope', sans-serif; /* Police spécifique */
     font-weight: bolder; /* Texte très gras */
     width: auto; /* Largeur automatique */
@@ -497,12 +497,14 @@ span {
     letter-spacing: normal; /* Espacement des lettres */
 }
 
-/* Media Queries */
+/* Media Queries (déplacés en bas) */
 @media (max-width: 480px) {
     body {
         padding: 0; /* Supprime le padding */
         width: 100%; /* Pleine largeur */
-        margin: 0; /* Supprime les marges */
+        margin: 0 5%; /* Ajoute marges gauche et droite de 5% pour page Contact */
+        display: flex; /* Flexbox pour centrage */
+        justify-content: center; /* Centre horizontalement le contenu */
     }
     header {
         font-size: 1em; /* Réduit la taille pour petits écrans */
@@ -525,7 +527,7 @@ span {
         min-height: calc(100vh - 70px); /* Hauteur ajustée */
         display: flex; /* Flexbox pour contenu */
         flex-direction: column; /* Disposition verticale */
-        width: 100%; /* Pleine largeur */
+        width: 90%; /* Réduit la largeur pour centrer avec marges de body */
         padding-left: 0; /* Supprime padding parasite */
         padding-right: 0; /* Supprime padding parasite */
     }
@@ -583,8 +585,10 @@ span {
     /* Ajustements pour la page Veille */
     .vm {
         box-shadow: 4px 4px 10px 2px rgb(245, 244, 244); /* Ombre réduite pour proportion au texte */
-        width: 90%; /* Largeur ajustée pour petits écrans */
+        width: auto; /* Largeur adaptée au contenu */
+        max-width: 90%; /* Limite la largeur maximale */
         margin: 10px auto; /* Centre horizontalement */
+        padding: 10px; /* Réduit le padding pour supprimer l'espace inutile */
     }
     /* Ajustements pour la page Profil */
     .ct {
@@ -603,12 +607,13 @@ span {
     }
     /* Ajustements pour la page Projets */
     .conteneur {
-        gap: 10px; /* Réduit l'espace entre éléments à une valeur fixe */
+        gap: 5px; /* Réduit encore plus l'espace entre éléments */
     }
     .pr {
-        margin-left: 2%; /* Marge réduite pour compacter */
-        margin-right: 2%; /* Marge réduite pour compacter */
-        font-size: 1.2em; /* Taille légèrement réduite pour compacter */
+        margin-left: 1%; /* Marge très réduite pour compacter */
+        margin-right: 1%; /* Marge très réduite pour compacter */
+        font-size: 1.1em; /* Taille réduite pour compacter davantage */
+        padding: 5px; /* Réduit le padding pour rapprocher le contenu */
     }
     .conteneur, .box, .vm, .open {
         width: 100%; /* Pleine largeur */
