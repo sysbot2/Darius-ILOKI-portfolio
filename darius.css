@@ -69,7 +69,6 @@ main {
     position: relative;
     display: flex;
     flex-direction: column;
-    min-height: calc(100vh - 100px); /* Hauteur minimale cohérente */
     width: 100%;
     box-sizing: border-box;
 }
@@ -90,7 +89,7 @@ main {
     flex-direction: column;
     position: relative;
     width: 100%;
-    min-height: 100%; /* Assure que .accueil remplit tout main */
+    min-height: calc(100vh - 100px); /* Assure que .accueil remplit l'espace minimum */
 }
 
 a {
@@ -123,18 +122,18 @@ img {
 .od {
     color: white;
     font-family: 'Manrope', sans-serif;
-    font-size: 5em;
+    font-size: 3em;
     font-weight: 900;
     margin: 0;
     padding: 70px;
-    background-image: url(images/h1.png);
+    
     text-align: center;
 }
 
 .p {
     color: white;
     font-family: 'Manrope', sans-serif;
-    font-size: 1.4em;
+    font-size: 2.4em;
     font-weight: 900;
     margin: 5px;
     display: flex;
@@ -153,7 +152,7 @@ h3, h6 {
 
 .conteneur {
     display: flex;
-    flex-direction: column; /* Changé en column pour s'étendre verticalement */
+    flex-direction: column;
     justify-content: center; /* Centre le contenu verticalement */
     align-items: center;
     flex: 1; /* S'étend pour remplir .accueil */
@@ -196,6 +195,13 @@ footer {
         margin-left: 0; /* Supprime la marge horizontale */
         margin: 5px 0; /* Ajoute une marge verticale */
         font-size: 1em; /* Réduit la taille pour petits écrans */
+    }
+    main {
+        padding-top: 60px; /* Réduit pour correspondre à la hauteur du header */
+        padding-bottom: 10px;
+    }
+    .accueil {
+        min-height: calc(100vh - 70px); /* Ajusté pour header + footer réduits */
     }
     footer {
         font-size: 1em;

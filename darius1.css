@@ -10,6 +10,7 @@ body {
     min-height: 100vh; /* Garantit que le body remplit la fenêtre */
     font-family: 'Manrope', 'Montserrat', sans-serif;
     overflow-x: hidden; /* Empêche le débordement horizontal */
+    height: 100%; /* Ajout pour garantir la chaîne de hauteur */
 }
 
 header {
@@ -20,7 +21,7 @@ header {
     left: 0;
     font-family: 'Manrope', sans-serif;
     font-size: 1.5em;
-    background-color: white;
+    background-color: beyaz;
     padding: 10px;
     text-align: center;
     z-index: 1000;
@@ -342,8 +343,10 @@ p, h1, h3, h4, h6, h5, .pro, .site, .ct, .tt, .tkt, .center, .lien, .Contact, .o
 }
 
 textarea {
-    width: 400px;
-    height: 200px;
+    width: 100%; /* Remplace la largeur fixe de 400px */
+    height: auto; /* Remplace la hauteur fixe de 200px */
+    min-height: 150px; /* Hauteur minimale pour rester utilisable */
+    flex-grow: 1; /* Permet au textarea de s'étendre si nécessaire */
     max-width: 100%; /* Empêche le dépassement */
     box-sizing: border-box; /* Inclut padding dans la largeur */
 }
@@ -353,6 +356,7 @@ input {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
     padding: 20px;
+    width: 100%; /* Remplace size="80px" */
     max-width: 100%; /* Empêche le dépassement */
     box-sizing: border-box; /* Inclut padding dans la largeur */
 }
@@ -368,6 +372,7 @@ label {
     flex-wrap: wrap;
     flex: 1; /* S'étend pour remplir main */
     width: 100%; /* Assure qu'il reste dans la largeur */
+    min-height: 100%; /* Ajout pour garantir qu'il prend toute la hauteur du parent */
 }
 
 .conteneur {
@@ -462,6 +467,8 @@ span {
         padding-top: 60px;
         padding-bottom: 10px;
         min-height: calc(100vh - 70px);
+        display: flex; /* Assurez-vous que main reste un flex container */
+        flex-direction: column;
     }
     footer {
         font-size: 1em;
@@ -488,6 +495,12 @@ span {
         margin-left: 2%;
         margin-right: 2%;
         font-size: 1.1em;
+        min-height: 100%; /* Garantit que .Contact remplit main */
+        flex: 1; /* Permet à .Contact de s'étendre */
+    }
+    .conta, form {
+        flex-grow: 1; /* Permet au formulaire de s'étendre si nécessaire */
+        width: 100%; /* Assure que le formulaire reste dans les limites */
     }
     input, textarea {
         width: 100%; /* Remplace la taille fixe */
