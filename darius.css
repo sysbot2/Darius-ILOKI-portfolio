@@ -1,44 +1,38 @@
 /* Animation pour déplacer le texte de gauche à droite */
 @keyframes slideIn {
     0% {
-        transform: translateX(-100vw);
-        opacity: 0;
+        transform: translateX(-100vw); /* Commence hors de l'écran, à gauche */
+        opacity: 0; /* Invisible au départ */
     }
     100% {
-        transform: translateX(0);
-        opacity: 1;
+        transform: translateX(0); /* Position finale */
+        opacity: 1; /* Visible */
     }
 }
 
 /* Appliquer l'animation à tout le texte de la page */
 h1, p, h3, h6 {
-    animation: slideIn 1.5s ease-out forwards;
+    animation: slideIn 1.5s ease-out forwards; /* Durée uniforme de 1.5s */
 }
 
 /* Styles globaux pour html et body */
-html {
-    width: 100vw; /* Force la largeur à la viewport */
+html, body {
     height: 100%;
     margin: 0;
     padding: 0;
     font-family: 'Manrope', 'Montserrat', sans-serif;
-    overflow-x: hidden; /* Évite les débordements horizontaux */
 }
 
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vh; /* Garantit une hauteur minimale pleine écran */
     background-color: white;
-    width: 100vw; /* Force la largeur à la viewport */
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Évite les débordements horizontaux */
 }
 
 header {
     background-image: url(images/cs.png);
-    width: 100vw; /* Utilise la largeur de la viewport */
+    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
@@ -49,39 +43,36 @@ header {
     text-align: center;
     z-index: 1000;
     height: 60px;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Inclut le padding dans la largeur */
 }
 
 main {
-    flex: 1;
-    padding-top: 60px;
-    padding-bottom: 0;
-    position: relative;
+    flex: 1; /* Prend tout l'espace disponible entre header et footer */
+    padding-top: 60px; /* Compense la hauteur fixe du header */
+    padding-bottom: 0; /* Retiré le padding-bottom pour que le footer soit collé */
+    position: relative; /* Contexte pour la vidéo en arrière-plan */
     display: flex;
     flex-direction: column;
-    min-height: calc(100vh - 60px);
-    width: 100vw; /* Utilise la largeur de la viewport */
+    min-height: calc(100vh - 60px); /* Ajouté pour garantir la hauteur minimale */
 }
 
 #background-video {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw; /* Utilise la largeur de la viewport */
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
+    width: 100%;
+    height: 100%; /* Couvre toute la hauteur de main */
+    object-fit: cover; /* Couvre tout l'arrière-plan */
+    z-index: -1; /* Derrière le contenu */
 }
 
 .accueil {
-    flex: 1;
+    flex: 1; /* S'étend pour remplir main */
     display: flex;
     flex-direction: column;
     background-size: cover;
     background-attachment: fixed;
-    position: relative;
-    width: 100vw; /* Utilise la largeur de la viewport */
-    height: 100%;
+    position: relative; /* Contexte pour la vidéo */
 }
 
 a {
@@ -92,7 +83,7 @@ a {
 
 a:hover {
     transform: scale(1.2);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease; /* Ajoute une transition fluide */
 }
 
 a:visited {
@@ -100,6 +91,7 @@ a:visited {
     font-weight: 900;
 }
 
+/* Styles pour le lien actif dans le header */
 a.active {
     font-weight: bold;
 }
@@ -113,7 +105,7 @@ a.active {
 img {
     text-align: left;
     margin-left: 20px;
-    width: 30px;
+    width: 30px; /* Taille fixe pour les icônes de réseaux sociaux */
     height: 30px;
 }
 
@@ -134,9 +126,8 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-grow: 1;
-    justify-content: center;
-    width: 100%; /* Assure que .p prend toute la largeur */
+    flex-grow: 1; /* Ajouté pour que .p s'étende dans .conteneur */
+    justify-content: center; /* Centre verticalement le contenu */
 }
 
 h3, h6 {
@@ -152,20 +143,17 @@ h3, h6 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex: 1;
+    flex: 1; /* S'étend pour remplir .accueil */
     gap: 5px;
-    width: 100vw; /* Utilise la largeur de la viewport */
-    height: 100%;
 }
 
 footer {
     background-image: url(images/cs.png);
     font-family: 'Manrope', sans-serif;
     font-size: 1.5em;
-    padding: 20px;
+    padding: 20px; /* Padding pour lisibilité */
     text-align: center;
     flex-shrink: 0;
-    width: 100vw; /* Utilise la largeur de la viewport */
 }
 
 .tokoss2 {
@@ -176,8 +164,8 @@ footer {
     flex-wrap: wrap;
 }
 
-/* Media Queries pour petits écrans (portrait) */
-@media (max-width: 480px) and (orientation: portrait) {
+/* Media Queries pour petits écrans */
+@media (max-width: 480px) {
     header, footer {
         font-size: 1em;
         padding: 8px;
@@ -194,36 +182,5 @@ footer {
     .tokoss2 {
         flex-direction: column;
         gap: 10px;
-    }
-}
-
-/* Media Query pour mode paysage sur mobile */
-@media (max-width: 767px) and (orientation: landscape) {
-    header, footer {
-        font-size: 1em;
-        padding: 8px;
-    }
-    .od {
-        font-size: 1.8em;
-    }
-    .p {
-        font-size: 1.2em;
-    }
-    .ok {
-        margin-left: 10px;
-    }
-    .tokoss2 {
-        flex-direction: row;
-        gap: 10px;
-    }
-    html, body, main, .accueil, .conteneur, #background-video, footer {
-        width: 100vw; /* Force tous les éléments à la largeur de la viewport */
-        margin: 0; /* Supprime toute marge parasite */
-    }
-    main {
-        min-height: calc(100vh - 60px); /* Garantit la hauteur en paysage */
-    }
-    .accueil, .conteneur {
-        height: 100%; /* Assure que la hauteur est remplie */
     }
 }
