@@ -47,6 +47,11 @@ header {
     align-items: center;
 }
 
+.ok {
+    margin-left: 20px;
+    font-weight: 900;
+}
+
 main {
     flex: 1; /* Prend tout l'espace disponible entre header et footer */
     padding-top: 60px; /* Compense la hauteur fixe du header */
