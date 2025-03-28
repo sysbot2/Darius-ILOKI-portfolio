@@ -1,725 +1,757 @@
 /* Appliquer box-sizing globalement pour éviter les problèmes de largeur */
 * {
-    box-sizing: border-box;
+    box-sizing: border-box; /* Inclut padding et bordures dans les dimensions */
 }
 
 /* Style global pour body */
 body {
-    background-color: white;
-    background-size: cover;
-    background-attachment: fixed;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh; /* Garantit que le body remplit la fenêtre */
-    font-family: 'Manrope', 'Montserrat', sans-serif;
+    background-color: white; /* Fond blanc pour toutes les pages */
+    background-size: cover; /* Couvre toute la zone visible */
+    background-attachment: fixed; /* Fond fixe lors du défilement */
+    display: flex; /* Utilise flexbox pour organiser header, main, footer */
+    flex-direction: column; /* Aligne les éléments verticalement */
+    margin: 0; /* Supprime les marges par défaut */
+    padding: 0; /* Supprime les paddings par défaut */
+    min-height: 100vh; /* Garantit que body remplit la hauteur de l'écran */
+    font-family: 'Manrope', 'Montserrat', sans-serif; /* Police par défaut */
     overflow-x: hidden; /* Empêche le débordement horizontal */
     width: 100%; /* Assure que body prend toute la largeur */
     height: 100%; /* Garantit la chaîne de hauteur */
 }
 
+/* Styles pour header */
 header {
-    background-image: url(images/cs.png);
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    font-family: 'Manrope', sans-serif;
-    font-size: 1.5em;
-    background-color: white; /* Corrigé "beyaz" en "white" */
-    padding: 10px;
-    text-align: center;
-    z-index: 1000;
-    min-height: 60px; /* Hauteur minimale au lieu de fixe pour flexibilité */
-    display: flex; /* Ajouté pour utiliser flexbox */
-    justify-content: center; /* Centre les éléments */
+    background-image: url(images/cs.png); /* Image de fond pour le header */
+    width: 100%; /* Prend toute la largeur */
+    position: fixed; /* Fixe le header en haut */
+    top: 0; /* Position en haut de la page */
+    left: 0; /* Aligné à gauche */
+    font-family: 'Manrope', sans-serif; /* Police spécifique pour header */
+    font-size: 1.5em; /* Taille de police par défaut */
+    background-color: white; /* Fond blanc (corrigé de "beyaz") */
+    padding: 10px; /* Espacement interne */
+    text-align: center; /* Centre le contenu */
+    z-index: 1000; /* Assure que header reste au-dessus des autres éléments */
+    min-height: 60px; /* Hauteur minimale pour flexibilité */
+    display: flex; /* Utilise flexbox pour centrer nav */
+    justify-content: center; /* Centre horizontalement */
     align-items: center; /* Centre verticalement */
 }
 
 /* Style pour la navigation */
 nav {
-    display: flex; /* Ajouté pour contrôler la disposition des liens */
+    display: flex; /* Flexbox pour aligner les liens */
     flex-wrap: wrap; /* Permet aux liens de passer à la ligne si nécessaire */
     justify-content: center; /* Centre les liens */
-    width: 100%; /* Assure que nav prend toute la largeur disponible */
+    width: 100%; /* Prend toute la largeur disponible */
 }
 
+/* Styles pour main */
 main {
-    flex: 1; /* S'étend pour remplir l'espace disponible */
-    padding-top: 80px; /* Compense la hauteur du header */
-    padding-bottom: 20px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
+    flex: 1; /* S'étend pour remplir l'espace entre header et footer */
+    padding-top: 80px; /* Compense la hauteur du header fixe */
+    padding-bottom: 20px; /* Espace avant le footer */
+    position: relative; /* Positionnement relatif pour éléments absolus (ex. vidéo) */
+    display: flex; /* Utilise flexbox pour organiser le contenu */
+    flex-direction: column; /* Contenu aligné verticalement */
     min-height: calc(100vh - 100px); /* Hauteur minimale pour remplir l'écran */
-    width: 100%; /* Assure que main prend toute la largeur */
+    width: 100%; /* Prend toute la largeur */
 }
 
+/* Styles pour la vidéo de fond */
 #background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    position: absolute; /* Position absolue pour couvrir main */
+    top: 0; /* Aligné en haut */
+    left: 0; /* Aligné à gauche */
+    width: 100%; /* Couvre toute la largeur */
     height: 100%; /* Couvre toute la hauteur de main */
-    object-fit: cover;
-    z-index: -1;
+    object-fit: cover; /* Ajuste la vidéo pour remplir sans déformer */
+    z-index: -1; /* Place la vidéo derrière le contenu */
 }
 
+/* Styles pour footer */
 footer {
-    color: white;
-    background-image: url(images/cs.png);
-    background-size: cover;
-    background-attachment: fixed;
-    font-family: 'Manrope', sans-serif;
-    font-size: 1.5em;
-    width: 100%; /* Assure que footer prend toute la largeur */
-    text-align: center;
-    padding: 20px;
+    color: white; /* Texte blanc pour contraste avec le fond */
+    background-image: url(images/cs.png); /* Image de fond pour footer */
+    background-size: cover; /* Couvre toute la zone */
+    background-attachment: fixed; /* Fond fixe */
+    font-family: 'Manrope', sans-serif; /* Police spécifique */
+    font-size: 1.5em; /* Taille de police par défaut */
+    width: 100%; /* Prend toute la largeur */
+    text-align: center; /* Centre le contenu */
+    padding: 20px; /* Espacement interne */
     flex-shrink: 0; /* Empêche le footer de rétrécir */
     margin: 0; /* Supprime toute marge parasite */
 }
 
-/* Lien (a) */
+/* Styles pour les liens (a) */
 a {
-    color: white;
-    text-decoration: none;
-    font-family: 'Manrope', sans-serif;
+    color: white; /* Couleur par défaut des liens */
+    text-decoration: none; /* Supprime le soulignement */
+    font-family: 'Manrope', sans-serif; /* Police des liens */
 }
 
 a:visited {
-    color: white;
-    font-weight: 900;
+    color: white; /* Couleur après visite */
+    font-weight: 900; /* Texte plus gras */
 }
 
-/* Paragraphe (p) */
+/* Styles pour les paragraphes et h4 */
 p, h4 {
-    margin-left: 4%;
-    margin-right: 4%;
-    color: black;
-    font-size: 1em;
-    font-family: 'Manrope', sans-serif;
-    text-align: justify;
+    margin-left: 4%; /* Marge gauche pour indentation */
+    margin-right: 4%; /* Marge droite pour indentation */
+    color: black; /* Couleur par défaut du texte */
+    font-size: 1em; /* Taille de police standard */
+    font-family: 'Manrope', sans-serif; /* Police par défaut */
+    text-align: justify; /* Texte justifié */
 }
 
+/* Styles pour h2 */
 h2 {
-    font-size: 2em;
-    font-weight: bold;
-    font-family: 'Manrope', sans-serif;
+    font-size: 2em; /* Taille de police pour h2 */
+    font-weight: bold; /* Texte en gras */
+    font-family: 'Manrope', sans-serif; /* Police spécifique */
 }
 
-/* Titres (h1, h3, h4, h6) */
+/* Styles pour les titres (h1, h3, h4, h6) */
 h1 {
-    background-image: url(images/h1.png);
-    margin: 0;
-    padding: 70px;
-    font-size: 5em;
-    font-family: 'Manrope', sans-serif;
-    color: white;
-    text-align: center;
+    background-image: url(images/h1.png); /* Fond pour tous les h1 */
+    margin: 0; /* Supprime les marges */
+    padding: 70px; /* Grand espacement interne */
+    font-size: 5em; /* Grande taille de police */
+    font-family: 'Manrope', sans-serif; /* Police spécifique */
+    color: white; /* Texte blanc */
+    text-align: center; /* Centre le texte */
 }
 
 h3, h4, h6 {
-    margin: 3px;
+    margin: 3px; /* Petite marge pour séparation */
 }
 
 /* Animation pour déplacer le texte de gauche à droite */
 @keyframes slide-in {
     from {
-        transform: translateX(-100%);
-        opacity: 0;
+        transform: translateX(-100%); /* Départ hors écran à gauche */
+        opacity: 0; /* Invisible */
     }
     to {
-        transform: translateX(0);
-        opacity: 1;
+        transform: translateX(0); /* Position finale */
+        opacity: 1; /* Visible */
     }
 }
 
 /* Appliquer l'animation au texte */
 p, h1, h3, h4, h6, h5, .pro, .site, .ct, .tt, .tkt, .center, .lien, .Contact, .ot1 {
-    animation: slide-in 1.5s ease-out;
+    animation: slide-in 1.5s ease-out; /* Animation de 1.5s avec easing */
 }
 
 /* Classes personnalisées */
 .ok {
-    margin-left: 20px;
-    font-weight: 900;
-    color: white; /* Ajouté pour cohérence */
+    margin-left: 20px; /* Espacement entre les liens dans nav */
+    font-weight: 900; /* Texte gras */
+    color: white; /* Couleur blanche */
 }
 
 .site {
-    font-family: 'Manrope', sans-serif;
-    font-size: 1.3em;
-    width: 20%;
-    padding: 10px;
-    border-radius: 50%;
-    border: 2px solid whitesmoke;
-    box-shadow: 6px 6px 30px whitesmoke;
-    text-align: center;
+    font-family: 'Manrope', sans-serif; /* Police spécifique */
+    font-size: 1.3em; /* Taille de police */
+    width: 20%; /* Largeur par défaut */
+    padding: 10px; /* Espacement interne */
+    border-radius: 50%; /* Bordure arrondie */
+    border: 2px solid whitesmoke; /* Bordure légère */
+    box-shadow: 6px 6px 30px whitesmoke; /* Ombre portée */
+    text-align: center; /* Centre le texte */
 }
 
 .site:hover {
-    color: rgb(45, 214, 214);
+    color: rgb(45, 214, 214); /* Couleur au survol */
 }
 
-/* Style pour les images rondes */
+/* Styles pour les images rondes */
 .ob, .oc {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    margin: 0;
-    padding: 16px;
-    animation: slide-in 2.5s ease-out;
+    width: 300px; /* Largeur par défaut */
+    height: 300px; /* Hauteur par défaut */
+    border-radius: 50%; /* Forme ronde */
+    margin: 0; /* Supprime les marges */
+    padding: 16px; /* Espacement interne */
+    animation: slide-in 2.5s ease-out; /* Animation plus longue */
     max-width: 100%; /* Empêche le dépassement */
 }
 
 .ob {
-    margin-left: 2%;
-    margin-right: 2%;
+    margin-left: 2%; /* Marge gauche spécifique */
+    margin-right: 2%; /* Marge droite spécifique */
 }
 
 .occ {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    margin: 0;
-    padding: 16px;
-    animation: slide-in 2.5s ease-out;
-    margin-left: 20%;
+    width: 300px; /* Largeur par défaut */
+    height: 300px; /* Hauteur par défaut */
+    border-radius: 50%; /* Forme ronde */
+    margin: 0; /* Supprime les marges */
+    padding: 16px; /* Espacement interne */
+    animation: slide-in 2.5s ease-out; /* Animation plus longue */
+    margin-left: 20%; /* Décalage à gauche */
     max-width: 100%; /* Empêche le dépassement */
 }
 
 .oc {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    margin: 0;
-    padding: 16px;
-    animation: slide-in 2.5s ease-out;
-    margin-top: 4%;
-    margin-left: 15%;
+    width: 300px; /* Largeur par défaut */
+    height: 300px; /* Hauteur par défaut */
+    border-radius: 50%; /* Forme ronde */
+    margin: 0; /* Supprime les marges */
+    padding: 16px; /* Espacement interne */
+    animation: slide-in 2.5s ease-out; /* Animation plus longue */
+    margin-top: 4%; /* Marge haute */
+    margin-left: 15%; /* Décalage à gauche */
     max-width: 100%; /* Empêche le dépassement */
 }
 
 .t, .pro {
-    margin-right: 4%;
-    margin-left: 4%;
-    text-align: center;
+    margin-right: 4%; /* Marge droite */
+    margin-left: 4%; /* Marge gauche */
+    text-align: center; /* Centre le texte */
 }
 
 .top:hover {
-    opacity: 0.5;
+    opacity: 0.5; /* Réduit l'opacité au survol */
 }
 
 /* Conteneur principal .tokoss */
 .tokoss {
-    background-size: cover;
-    color: white;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 5px;
-    flex-wrap: wrap;
-    box-shadow: 2px 2px 3px;
-    z-index: 1;
+    background-size: cover; /* Couvre toute la zone */
+    color: white; /* Texte blanc */
+    position: relative; /* Positionnement relatif */
+    display: flex; /* Flexbox pour alignement */
+    flex-direction: row; /* Disposition horizontale */
+    justify-content: space-between; /* Espacement entre éléments */
+    align-items: center; /* Centre verticalement */
+    gap: 5px; /* Petit espace entre éléments */
+    flex-wrap: wrap; /* Permet le retour à la ligne */
+    box-shadow: 2px 2px 3px; /* Ombre légère */
+    z-index: 1; /* Au-dessus de la vidéo */
     flex: 1; /* S'étend pour remplir main */
 }
 
 /* Flex column conteneur .tokoss3 */
 .tokoss3 {
-    background-size: cover;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    justify-items: center;
+    background-size: cover; /* Couvre toute la zone */
+    position: relative; /* Positionnement relatif */
+    display: flex; /* Flexbox pour alignement */
+    flex-direction: row; /* Disposition horizontale */
+    justify-content: space-around; /* Espacement équilibré */
+    justify-items: center; /* Centre les items */
     flex: 1; /* S'étend pour remplir main */
 }
 
 /* Conteneur flex pour les éléments de .tokoss2 */
 .tokoss2 {
-    background-size: cover;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    background-size: cover; /* Couvre toute la zone */
+    display: flex; /* Flexbox pour alignement */
+    flex-direction: row; /* Disposition horizontale */
+    justify-content: space-around; /* Espacement équilibré */
+    flex-wrap: wrap; /* Permet le retour à la ligne */
     flex: 1; /* S'étend pour remplir main */
-    width: 100%; /* Assure que tokoss2 prend toute la largeur dans le footer */
+    width: 100%; /* Assure pleine largeur dans footer */
 }
 
 .t {
-    color: white;
-    margin-bottom: 2%;
-    font-size: 2.5em;
+    color: white; /* Texte blanc */
+    margin-bottom: 2%; /* Marge basse */
+    font-size: 2.5em; /* Grande taille de police */
 }
 
 .u {
-    color: white;
-    margin-top: 2%;
-    text-align: center;
-    font-size: 2.5em;
+    color: white; /* Texte blanc */
+    margin-top: 2%; /* Marge haute */
+    text-align: center; /* Centre le texte */
+    font-size: 2.5em; /* Grande taille de police */
 }
 
 .vm {
-    border: solid 10px rgb(182, 181, 181);
-    width: 40%;
-    margin: 5px;
-    box-shadow: 6px 6px 15px 10px rgb(245, 244, 244);
-    font-size: 1.4em;
+    border: solid 10px rgb(182, 181, 181); /* Bordure grise */
+    width: 40%; /* Largeur par défaut */
+    margin: 5px; /* Marge extérieure */
+    box-shadow: 6px 6px 15px 5px rgb(245, 244, 244); /* Ombre ajustée pour page Veille */
+    font-size: 1.4em; /* Taille de police */
     max-width: 100%; /* Empêche le dépassement */
 }
 
 .tkt a {
-    color: white; /* Changé de black à white pour cohérence avec les liens */
+    color: white; /* Liens blancs dans .tkt */
 }
 
 .lien {
-    margin-top: 5%;
+    margin-top: 5%; /* Marge haute */
 }
 
 .lien a {
-    background-image: url(images/h1.png);
-    color: white;
+    background-image: url(images/h1.png); /* Fond pour les liens */
+    color: white; /* Texte blanc */
 }
 
 .veille {
-    position: relative;
-    flex: 1; /* Ajout pour s'assurer que la classe veille s'étend */
+    position: relative; /* Positionnement relatif */
+    flex: 1; /* S'étend pour remplir main */
 }
 
 .open {
-    border: solid 10px rgb(182, 181, 181);
-    width: 40%;
-    margin: 5px;
-    box-shadow: 6px 6px 15px 10px rgb(245, 244, 244);
-    font-size: 1.4em;
+    border: solid 10px rgb(182, 181, 181); /* Bordure grise */
+    width: 40%; /* Largeur par défaut */
+    margin: 5px; /* Marge extérieure */
+    box-shadow: 6px 6px 15px 10px rgb(245, 244, 244); /* Ombre portée */
+    font-size: 1.4em; /* Taille de police */
     max-width: 100%; /* Empêche le dépassement */
 }
 
 .dh {
-    margin-left: 15%;
-    margin-right: 2%;
-    color: white;
+    margin-left: 15%; /* Marge gauche */
+    margin-right: 2%; /* Marge droite */
+    color: white; /* Texte blanc */
 }
 
 .tkt {
-    color: black;
-    display: flex;
-    flex-direction: row; /* Changé pour colonne pour Profil */
-    flex-wrap: wrap;
-    justify-content: space-around;
-    flex-grow: 1; /* Permet de s'étendre dans main */
-    margin-top: 5%;
+    color: black; /* Texte noir par défaut */
+    display: flex; /* Flexbox pour alignement */
+    flex-direction: row; /* Disposition horizontale */
+    flex-wrap: wrap; /* Permet le retour à la ligne */
+    justify-content: space-around; /* Espacement équilibré */
+    flex-grow: 1; /* S'étend dans main */
+    margin-top: 5%; /* Marge haute */
 }
 
 .ov {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    margin: 0;
-    padding: 16px;
-    animation: slide-in 2.5s ease-out;
-    margin: auto;
+    width: 300px; /* Largeur par défaut */
+    height: 300px; /* Hauteur par défaut */
+    border-radius: 50%; /* Forme ronde */
+    margin: 0; /* Supprime les marges */
+    padding: 16px; /* Espacement interne */
+    animation: slide-in 2.5s ease-out; /* Animation longue */
+    margin: auto; /* Centre l'image */
     max-width: 100%; /* Empêche le dépassement */
 }
 
 .tokoss4, .tokoss5, .tokoss6 {
-    background-size: cover;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    gap: 2%;
-    flex-wrap: wrap;
+    background-size: cover; /* Couvre toute la zone */
+    display: flex; /* Flexbox pour alignement */
+    flex-direction: row; /* Disposition horizontale */
+    justify-content: space-around; /* Espacement équilibré */
+    gap: 2%; /* Espace entre éléments */
+    flex-wrap: wrap; /* Permet le retour à la ligne */
     flex: 1; /* S'étend pour remplir main */
-    width: 100%; /* Assure qu'il reste dans la largeur */
+    width: 100%; /* Assure pleine largeur */
 }
 
 .ecole {
-    margin-left: 4%;
-    margin-right: 4%;
-    font-size: 1.4em;
-    font-family: 'Manrope', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Répartit le contenu verticalement */
+    margin-left: 4%; /* Marge gauche */
+    margin-right: 4%; /* Marge droite */
+    font-size: 1.4em; /* Taille de police */
+    font-family: 'Manrope', sans-serif; /* Police spécifique */
+    display: flex; /* Flexbox pour alignement */
+    flex-direction: column; /* Disposition verticale */
+    justify-content: space-between; /* Répartit le contenu */
     flex-grow: 1; /* S'étend pour remplir main */
 }
 
+/* Styles spécifiques pour la page Contact */
 textarea {
-    width: 100%; /* Remplace la largeur fixe de 400px */
-    height: auto; /* Remplace la hauteur fixe de 200px */
-    min-height: 150px; /* Hauteur minimale pour rester utilisable */
-    flex-grow: 1; /* Permet au textarea de s'étendre si nécessaire */
+    width: 100%; /* Pleine largeur */
+    height: auto; /* Hauteur automatique */
+    min-height: 150px; /* Hauteur minimale */
+    flex-grow: 1; /* S'étend si nécessaire */
     max-width: 100%; /* Empêche le dépassement */
 }
 
 input {
-    font-size: 1.4em;
-    font-family: 'Manrope', sans-serif;
-    font-weight: 400;
-    padding: 20px;
-    width: 100%; /* Remplace size="80px" */
+    font-size: 1.4em; /* Taille de police */
+    font-family: 'Manrope', sans-serif; /* Police spécifique */
+    font-weight: 400; /* Poids normal */
+    padding: 20px; /* Espacement interne */
+    width: 100%; /* Pleine largeur (remplace size="80px") */
     max-width: 100%; /* Empêche le dépassement */
 }
 
 label {
-    font-weight: bolder;
+    font-weight: bolder; /* Texte en gras */
 }
 
 .Contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
+    display: flex; /* Flexbox pour alignement */
+    flex-direction: column; /* Disposition verticale */
+    align-items: center; /* Centre horizontalement */
+    flex-wrap: wrap; /* Permet le retour à la ligne */
     flex: 1; /* S'étend pour remplir main */
-    width: 100%; /* Assure qu'il reste dans la largeur */
-    min-height: 100%; /* Ajout pour garantir qu'il prend toute la hauteur du parent */
+    width: 100%; /* Pleine largeur */
+    min-height: 100%; /* Occupe toute la hauteur de main */
 }
 
+/* Styles spécifiques pour la page Projets */
 .conteneur {
-    font-size: 1.4em;
-    font-family: 'Manrope', sans-serif;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    gap: 10%;
-    flex-wrap: wrap;
+    font-size: 1.4em; /* Taille de police */
+    font-family: 'Manrope', sans-serif; /* Police spécifique */
+    display: flex; /* Flexbox pour alignement */
+    flex-direction: row; /* Disposition horizontale */
+    justify-content: space-around; /* Espacement équilibré */
+    align-items: center; /* Centre verticalement */
+    gap: 10%; /* Espace entre éléments par défaut */
+    flex-wrap: wrap; /* Permet le retour à la ligne */
     flex: 1; /* S'étend pour remplir main */
-    width: 100%; /* Assure qu'il reste dans la largeur */
+    width: 100%; /* Pleine largeur */
 }
 
 .box {
-    border: solid 10px rgb(182, 181, 181);
-    width: 40%;
-    margin: 5px;
-    box-shadow: 6px 6px 15px 10px rgb(245, 244, 244);
-    padding: 16px;
+    border: solid 10px rgb(182, 181, 181); /* Bordure grise */
+    width: 40%; /* Largeur par défaut */
+    margin: 5px; /* Marge extérieure */
+    box-shadow: 6px 6px 15px 10px rgb(245, 244, 244); /* Ombre portée */
+    padding: 16px; /* Espacement interne */
     max-width: 100%; /* Empêche le dépassement */
 }
 
+/* Styles spécifiques pour la page Profil */
 .pro {
-    color: white;
-    margin-left: 4%;
-    margin-right: 4%;
-    font-size: 1.4em;
-    font-family: 'Manrope', sans-serif;
-    text-align: center;
+    color: white; /* Texte blanc */
+    margin-left: 4%; /* Marge gauche */
+    margin-right: 4%; /* Marge droite */
+    font-size: 1.4em; /* Taille de police */
+    font-family: 'Manrope', sans-serif; /* Police spécifique */
+    text-align: center; /* Centre le texte */
 }
 
 .pr {
-    margin-left: 4%;
-    margin-right: 4%;
-    color: black;
-    font-size: 1.4em;
-    font-family: 'Manrope', sans-serif;
-    text-align: justify;
-    flex-grow: 1; /* Ajout pour que le paragraphe s'étende dans Profil */
+    margin-left: 4%; /* Marge gauche par défaut */
+    margin-right: 4%; /* Marge droite par défaut */
+    color: black; /* Texte noir */
+    font-size: 1.4em; /* Taille de police */
+    font-family: 'Manrope', sans-serif; /* Police spécifique */
+    text-align: justify; /* Texte justifié */
+    flex-grow: 1; /* S'étend dans main */
 }
 
 span {
-    font-size: 1em;
-    font-family: 'Manrope', sans-serif;
-    font-weight: bold;
+    font-size: 1em; /* Taille de police */
+    font-family: 'Manrope', sans-serif; /* Police spécifique */
+    font-weight: bold; /* Texte en gras */
 }
 
 .ct {
-    background-image: url(images/h1.png);
-    font-size: 1.7em;
-    font-family: 'Manrope', sans-serif;
-    font-weight: bolder;
-    width: auto;
-    height: 50px;
-    text-align: center;
-    box-shadow: 6px 6px 15px 10px rgb(245, 244, 244);
-    border: solid 10px rgb(182, 181, 181);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px; /* Ajout d'espacement entre les boutons */
+    background-image: url(images/h1.png); /* Fond pour les boutons */
+    font-size: 1.2em; /* Taille de police */
+    font-family: 'Manrope', sans-serif; /* Police spécifique */
+    font-weight: bolder; /* Texte très gras */
+    width: auto; /* Largeur automatique */
+    height: 50px; /* Hauteur fixe */
+    text-align: center; /* Centre le texte */
+    box-shadow: 10px 10px 25px 10px rgb(245, 244, 244); /* Ombre augmentée pour page Profil */
+    border: solid 10px rgb(182, 181, 181); /* Bordure grise */
+    border-radius: 50%; /* Forme ronde */
+    display: flex; /* Flexbox pour centrage */
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    margin: 10px; /* Espacement entre boutons */
+    padding: 10px 20px; /* Padding ajusté pour plus d'espace interne */
 }
 
 .ct:hover {
-    color: rgb(67, 36, 177);
+    color: rgb(67, 36, 177); /* Couleur au survol */
+}
+
+/* Classes spécifiques pour la page BTS SIO */
+.bts {
+    background-image: url(images/h1.png); /* Fond spécifique */
+    margin: 0; /* Supprime marges */
+    padding: 70px; /* Grand padding */
+    font-size: 5em; /* Grande taille */
+    font-family: "Manrope", sans-serif; /* Police spécifique */
+    color: white; /* Texte blanc */
+    text-align: center; /* Centre le texte */
+}
+
+.tt {
+    font-family: 'Manrope', sans-serif; /* Police spécifique */
+    font-size: 2.5em; /* Taille de police */
+    margin-right: 5%; /* Marge droite */
+    color: black; /* Texte noir */
+    text-align: center; /* Centre le texte */
+    font-weight: bold; /* Texte gras */
+}
+
+.ot {
+    font-size: 1.4em; /* Taille de police */
+    font-family: 'Manrope', sans-serif; /* Police spécifique */
+    margin-left: 4%; /* Marge gauche */
+    margin-right: 4%; /* Marge droite */
+    color: black; /* Texte noir */
+    padding: 16px; /* Espacement interne */
+    text-align: justify; /* Texte justifié */
+}
+
+.ot1 {
+    font-size: 1em; /* Taille de police */
+    font-family: 'Manrope', sans-serif; /* Police spécifique */
+    color: black; /* Texte noir */
+    margin: 0; /* Supprime marges */
+    padding: 0; /* Supprime padding */
+    text-align: left; /* Aligné à gauche */
+    line-height: 1.4; /* Hauteur de ligne */
+    word-spacing: normal; /* Espacement des mots */
+    letter-spacing: normal; /* Espacement des lettres */
 }
 
 /* Media Queries */
 @media (max-width: 480px) {
     body {
-        padding: 0;
-        width: 100%; /* Réaffirme que body prend toute la largeur */
-        margin: 0; /* Supprime toute marge parasite */
+        padding: 0; /* Supprime le padding */
+        width: 100%; /* Pleine largeur */
+        margin: 0; /* Supprime les marges */
     }
     header {
-        font-size: 1em; /* Réduit la taille de police pour gagner de l'espace */
+        font-size: 1em; /* Réduit la taille pour petits écrans */
         padding: 5px; /* Réduit le padding */
-        min-height: auto; /* Permet au header de s'adapter au contenu */
+        min-height: auto; /* Hauteur adaptée au contenu */
     }
     nav {
-        flex-direction: column; /* Passe les liens en disposition verticale */
-        align-items: center; /* Centre les liens verticalement */
-        width: 100%; /* Assure que nav reste à 100% */
+        flex-direction: column; /* Liens en colonne */
+        align-items: center; /* Centre les liens */
+        width: 100%; /* Pleine largeur */
     }
     .ok {
-        margin-left: 0; /* Supprime la marge à gauche */
-        margin: 5px 0; /* Ajoute une marge verticale entre les liens */
-        font-size: 1em; /* Réduit la taille des liens */
+        margin-left: 0; /* Supprime la marge gauche */
+        margin: 5px 0; /* Marge verticale entre liens */
+        font-size: 1em; /* Réduit la taille */
     }
     main {
-        padding-top: 60px;
-        padding-bottom: 10px;
-        min-height: calc(100vh - 70px);
-        display: flex; /* Assurez-vous que main reste un flex container */
-        flex-direction: column;
-        width: 100%; /* Réaffirme que main prend toute la largeur */
-        padding-left: 0; /* Supprime tout padding parasite */
-        padding-right: 0;
+        padding-top: 60px; /* Réduit pour header plus petit */
+        padding-bottom: 10px; /* Espace avant footer */
+        min-height: calc(100vh - 70px); /* Hauteur ajustée */
+        display: flex; /* Flexbox pour contenu */
+        flex-direction: column; /* Disposition verticale */
+        width: 100%; /* Pleine largeur */
+        padding-left: 0; /* Supprime padding parasite */
+        padding-right: 0; /* Supprime padding parasite */
     }
     footer {
-        font-size: 1em;
-        padding: 10px;
-        width: 100%; /* Réaffirme que footer prend toute la largeur */
-        margin: 0; /* Supprime toute marge parasite */
+        font-size: 1em; /* Réduit la taille */
+        padding: 10px; /* Réduit le padding */
+        width: 100%; /* Pleine largeur */
+        margin: 0; /* Supprime les marges */
     }
     .tokoss2 {
-        width: 100%; /* Assure que le conteneur dans le footer prend toute la largeur */
-        padding-left: 0; /* Supprime tout padding parasite */
-        padding-right: 0;
+        width: 100%; /* Pleine largeur dans footer */
+        padding-left: 0; /* Supprime padding parasite */
+        padding-right: 0; /* Supprime padding parasite */
     }
     h1 {
-        font-size: 2.5em;
-        padding: 20px;
+        font-size: 2.5em; /* Réduit pour petits écrans */
+        padding: 20px; /* Réduit le padding */
     }
     .site {
-        width: 100%;
-        font-size: 1em;
+        width: 100%; /* Pleine largeur */
+        font-size: 1em; /* Réduit la taille */
     }
     .ob, .oc, .occ, .ov {
-        width: 150px;
-        height: 150px;
-        padding: 8px;
+        width: 150px; /* Réduit la taille des images */
+        height: 150px; /* Réduit la taille des images */
+        padding: 8px; /* Réduit le padding */
     }
     .tokoss, .tokoss2, .tokoss3, .tokoss4, .tokoss5, .tokoss6 {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%; /* Assure que ces conteneurs prennent toute la largeur */
+        flex-direction: column; /* Disposition verticale */
+        gap: 10px; /* Espace entre éléments */
+        width: 100%; /* Pleine largeur */
     }
     .ecole, .Contact {
-        margin-left: 2%;
-        margin-right: 2%;
-        font-size: 1.1em;
-        min-height: 100%; /* Garantit que .Contact remplit main */
-        flex: 1; /* Permet à .Contact de s'étendre */
-        width: 100%; /* Assure que ces éléments prennent toute la largeur */
+        margin-left: 2%; /* Marge réduite */
+        margin-right: 2%; /* Marge réduite */
+        font-size: 1.1em; /* Taille ajustée */
+        min-height: 100%; /* Occupe toute la hauteur */
+        flex: 1; /* S'étend dans main */
+        width: 100%; /* Pleine largeur */
     }
+    /* Ajustements pour la page Contact */
     .conta, form {
-        flex-grow: 1; /* Permet au formulaire de s'étendre si nécessaire */
-        width: 100%; /* Assure que le formulaire reste dans les limites */
-        padding-left: 0; /* Supprime tout padding parasite */
-        padding-right: 0;
+        flex-grow: 1; /* S'étend dans .Contact */
+        width: 80%; /* Largeur réduite pour centrage */
+        max-width: 400px; /* Limite maximale pour lisibilité */
+        margin: 0 auto; /* Centre horizontalement le formulaire */
+        padding-left: 0; /* Supprime padding parasite */
+        padding-right: 0; /* Supprime padding parasite */
     }
     input, textarea {
-        width: 100%; /* Remplace la taille fixe */
-        font-size: 1em;
-        padding: 10px;
+        width: 100%; /* Pleine largeur */
+        font-size: 1em; /* Taille réduite */
+        padding: 10px; /* Padding réduit */
+    }
+    /* Ajustements pour la page Veille */
+    .vm {
+        box-shadow: 4px 4px 10px 2px rgb(245, 244, 244); /* Ombre réduite pour proportion au texte */
+        width: 90%; /* Largeur ajustée pour petits écrans */
+        margin: 10px auto; /* Centre horizontalement */
+    }
+    /* Ajustements pour la page Profil */
+    .ct {
+        box-shadow: 10px 10px 30px 15px rgb(245, 244, 244); /* Ombre augmentée pour petits écrans */
+        padding: 8px 16px; /* Padding ajusté */
     }
     .t {
-        font-size: 1.5em;
+        font-size: 1.5em; /* Réduit la taille */
     }
     .ot {
-        font-size: 1.2em;
+        font-size: 1.2em; /* Réduit la taille */
     }
     .tkt {
-        flex-direction: column;
-        width: 100%; /* Assure que tkt prend toute la largeur */
+        flex-direction: column; /* Disposition verticale */
+        width: 100%; /* Pleine largeur */
+    }
+    /* Ajustements pour la page Projets */
+    .conteneur {
+        gap: 10px; /* Réduit l'espace entre éléments à une valeur fixe */
+    }
+    .pr {
+        margin-left: 2%; /* Marge réduite pour compacter */
+        margin-right: 2%; /* Marge réduite pour compacter */
+        font-size: 1.2em; /* Taille légèrement réduite pour compacter */
     }
     .conteneur, .box, .vm, .open {
-        width: 100%; /* Remplace les largeurs fixes */
+        width: 100%; /* Pleine largeur */
     }
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
     body {
-        padding: 0;
-        width: 100%;
+        padding: 0; /* Supprime padding */
+        width: 100%; /* Pleine largeur */
     }
     header {
-        font-size: 1.2em;
-        padding: 8px;
+        font-size: 1.2em; /* Taille ajustée */
+        padding: 8px; /* Padding ajusté */
     }
     main {
-        padding-top: 70px;
-        padding-bottom: 15px;
-        min-height: calc(100vh - 85px);
-        width: 100%;
+        padding-top: 70px; /* Ajusté pour header */
+        padding-bottom: 15px; /* Espace avant footer */
+        min-height: calc(100vh - 85px); /* Hauteur ajustée */
+        width: 100%; /* Pleine largeur */
     }
     footer {
-        font-size: 1.2em;
-        padding: 15px;
-        width: 100%;
+        font-size: 1.2em; /* Taille ajustée */
+        padding: 15px; /* Padding ajusté */
+        width: 100%; /* Pleine largeur */
     }
     h1 {
-        font-size: 3em;
-        padding: 30px;
+        font-size: 3em; /* Taille ajustée */
+        padding: 30px; /* Padding ajusté */
     }
     .site {
-        width: 80%;
-        font-size: 1.1em;
+        width: 80%; /* Largeur réduite */
+        font-size: 1.1em; /* Taille ajustée */
     }
     .ob, .oc, .occ, .ov {
-        width: 200px;
-        height: 200px;
+        width: 200px; /* Taille ajustée */
+        height: 200px; /* Taille ajustée */
     }
     .tokoss, .tokoss2, .tokoss3, .tokoss4, .tokoss5, .tokoss6 {
-        flex-direction: column;
-        gap: 15px;
-        width: 100%;
+        flex-direction: column; /* Disposition verticale */
+        gap: 15px; /* Espace entre éléments */
+        width: 100%; /* Pleine largeur */
     }
     .t {
-        font-size: 1.8em;
+        font-size: 1.8em; /* Taille ajustée */
     }
     .ot {
-        font-size: 1.3em;
+        font-size: 1.3em; /* Taille ajustée */
     }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
     body {
-        padding: 0;
-        width: 100%;
+        padding: 0; /* Supprime padding */
+        width: 100%; /* Pleine largeur */
     }
     header {
-        font-size: 1.3em;
-        padding: 10px;
+        font-size: 1.3em; /* Taille ajustée */
+        padding: 10px; /* Padding ajusté */
     }
     main {
-        padding-top: 80px;
-        padding-bottom: 20px;
-        width: 100%;
+        padding-top: 80px; /* Padding par défaut */
+        padding-bottom: 20px; /* Espace avant footer */
+        width: 100%; /* Pleine largeur */
     }
     footer {
-        font-size: 1.3em;
-        padding: 20px;
-        width: 100%;
+        font-size: 1.3em; /* Taille ajustée */
+        padding: 20px; /* Padding ajusté */
+        width: 100%; /* Pleine largeur */
     }
     h1 {
-        font-size: 3.5em;
-        padding: 40px;
+        font-size: 3.5em; /* Taille ajustée */
+        padding: 40px; /* Padding ajusté */
     }
     .site {
-        width: 50%;
+        width: 50%; /* Largeur réduite */
     }
     .ob, .oc, .occ, .ov {
-        width: 250px;
-        height: 250px;
+        width: 250px; /* Taille ajustée */
+        height: 250px; /* Taille ajustée */
     }
     .tokoss, .tokoss2, .tokoss3, .tokoss4, .tokoss5, .tokoss6 {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 20px;
-        width: 100%;
+        flex-direction: row; /* Disposition horizontale */
+        flex-wrap: wrap; /* Permet le retour à la ligne */
+        gap: 20px; /* Espace entre éléments */
+        width: 100%; /* Pleine largeur */
     }
     .t {
-        font-size: 2em;
+        font-size: 2em; /* Taille ajustée */
     }
 }
 
 @media (min-width: 1024px) and (max-width: 1439px) {
     body {
-        padding: 0;
-        width: 100%;
+        padding: 0; /* Supprime padding */
+        width: 100%; /* Pleine largeur */
     }
     header {
-        font-size: 1.4em;
+        font-size: 1.4em; /* Taille ajustée */
     }
     main {
-        padding-top: 80px;
-        padding-bottom: 20px;
-        width: 100%;
+        padding-top: 80px; /* Padding par défaut */
+        padding-bottom: 20px; /* Espace avant footer */
+        width: 100%; /* Pleine largeur */
     }
     footer {
-        font-size: 1.4em;
-        width: 100%;
+        font-size: 1.4em; /* Taille ajustée */
+        width: 100%; /* Pleine largeur */
     }
     h1 {
-        font-size: 4em;
+        font-size: 4em; /* Taille ajustée */
     }
     .site {
-        width: 30%;
+        width: 30%; /* Largeur réduite */
     }
     .t {
-        font-size: 2.5em;
+        font-size: 2.5em; /* Taille ajustée */
     }
 }
 
 @media (min-width: 1440px) and (max-width: 1919px) {
     .site {
-        width: 20%;
+        width: 20%; /* Largeur réduite */
     }
     .t {
-        font-size: 3em;
+        font-size: 3em; /* Taille ajustée */
     }
 }
 
 @media (min-width: 1920px) {
     .site {
-        width: 15%;
+        width: 15%; /* Largeur réduite */
     }
     .t {
-        font-size: 3.5em;
+        font-size: 3.5em; /* Taille ajustée */
     }
 }
 
 @media (min-width: 3840px) {
     .site {
-        width: 10%;
+        width: 10%; /* Largeur réduite */
     }
     .t {
-        font-size: 5em;
+        font-size: 5em; /* Taille ajustée */
     }
-}
-
-/* Classes spécifiques */
-.bts {
-    background-image: url(images/h1.png);
-    margin: 0;
-    padding: 70px;
-    font-size: 5em;
-    font-family: "Manrope", sans-serif;
-    color: white;
-    text-align: center;
-}
-
-.tt {
-    font-family: 'Manrope', sans-serif;
-    font-size: 2.5em;
-    margin-right: 5%;
-    color: black;
-    text-align: center;
-    font-weight: bold;
-}
-
-.ot {
-    font-size: 1.4em;
-    font-family: 'Manrope', sans-serif;
-    margin-left: 4%;
-    margin-right: 4%;
-    color: black;
-    padding: 16px;
-    text-align: justify;
-}
-
-.ot1 {
-    font-size: 1em;
-    font-family: 'Manrope', sans-serif;
-    color: black;
-    margin: 0;
-    padding: 0;
-    text-align: left;
-    line-height: 1.4;
-    word-spacing: normal;
-    letter-spacing: normal;
 }
