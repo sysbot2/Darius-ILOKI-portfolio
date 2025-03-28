@@ -24,8 +24,19 @@ header {
     padding: 10px;
     text-align: center;
     z-index: 1000;
-    height: 60px;
+    min-height: 60px; /* Hauteur minimale au lieu de fixe pour flexibilité */
     box-sizing: border-box; /* Inclut le padding dans la largeur */
+    display: flex; /* Ajouté pour utiliser flexbox */
+    justify-content: center; /* Centre les éléments */
+    align-items: center; /* Centre verticalement */
+}
+
+/* Style pour la navigation */
+nav {
+    display: flex; /* Ajouté pour contrôler la disposition des liens */
+    flex-wrap: wrap; /* Permet aux liens de passer à la ligne si nécessaire */
+    justify-content: center; /* Centre les liens */
+    width: 100%; /* Assure que nav prend toute la largeur disponible */
 }
 
 main {
@@ -128,6 +139,7 @@ p, h1, h3, h4, h6, h5, .pro, .site, .ct, .tt, .tkt, .center, .lien, .Contact, .o
 .ok {
     margin-left: 20px;
     font-weight: 900;
+    color: white; /* Ajouté pour cohérence */
 }
 
 .site {
@@ -433,9 +445,18 @@ span {
         padding: 0;
     }
     header {
-        font-size: 1em;
-        padding: 5px;
-        height: 50px;
+        font-size: 1em; /* Réduit la taille de police pour gagner de l'espace */
+        padding: 5px; /* Réduit le padding */
+        min-height: auto; /* Permet au header de s'adapter au contenu */
+    }
+    nav {
+        flex-direction: column; /* Passe les liens en disposition verticale */
+        align-items: center; /* Centre les liens verticalement */
+    }
+    .ok {
+        margin-left: 0; /* Supprime la marge à gauche */
+        margin: 5px 0; /* Ajoute une marge verticale entre les liens */
+        font-size: 1em; /* Réduit la taille des liens */
     }
     main {
         padding-top: 60px;

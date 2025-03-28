@@ -34,36 +34,44 @@ header {
     font-family: 'Manrope', sans-serif;
     font-size: 1.5em;
     background-image: url(images/cs.png);
-    padding: 10px; /* Aligné avec darius1.css */
+    padding: 10px;
     text-align: center;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    height: 60px; /* Hauteur fixe cohérente avec darius1.css */
+    min-height: 60px; /* Changé en min-height pour flexibilité */
     display: flex;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box; /* Inclut le padding dans la hauteur/largeur */
+    box-sizing: border-box;
+}
+
+/* Ajout de styles pour nav */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
 }
 
 .ok {
     margin-left: 20px;
     font-weight: 900;
-    color: white; /* Cohérence avec les autres pages */
+    color: white;
 }
 
 main {
     flex: 1; /* Prend tout l'espace disponible entre header et footer */
-    padding-top: 80px; /* Compense la hauteur du header + marge, comme dans darius1.css */
-    padding-bottom: 20px; /* Aligné avec darius1.css */
-    position: relative; /* Contexte pour la vidéo en arrière-plan */
+    padding-top: 80px; /* Compense la hauteur du header */
+    padding-bottom: 20px;
+    position: relative;
     display: flex;
     flex-direction: column;
     min-height: calc(100vh - 100px); /* Hauteur minimale cohérente */
     width: 100%;
-    box-sizing: border-box; /* Aligné avec darius1.css */
+    box-sizing: border-box;
 }
 
 #background-video {
@@ -72,16 +80,17 @@ main {
     left: 0;
     width: 100%;
     height: 100%; /* Couvre toute la hauteur de main */
-    object-fit: cover; /* Couvre tout l'arrière-plan */
-    z-index: -1; /* Derrière le contenu */
+    object-fit: cover;
+    z-index: -1;
 }
 
 .accueil {
     flex: 1; /* S'étend pour remplir main */
     display: flex;
     flex-direction: column;
-    position: relative; /* Contexte pour la vidéo */
+    position: relative;
     width: 100%;
+    min-height: 100%; /* Assure que .accueil remplit tout main */
 }
 
 a {
@@ -92,7 +101,7 @@ a {
 
 a:hover {
     transform: scale(1.2);
-    transition: transform 0.3s ease; /* Ajoute une transition fluide */
+    transition: transform 0.3s ease;
 }
 
 a:visited {
@@ -100,7 +109,6 @@ a:visited {
     font-weight: 900;
 }
 
-/* Styles pour le lien actif dans le header */
 a.active {
     font-weight: bold;
 }
@@ -108,25 +116,25 @@ a.active {
 img {
     text-align: left;
     margin-left: 20px;
-    width: 30px; /* Taille fixe pour les icônes de réseaux sociaux */
+    width: 30px;
     height: 30px;
 }
 
 .od {
     color: white;
     font-family: 'Manrope', sans-serif;
-    font-size: 5em; /* Aligné avec les h1 des autres pages */
+    font-size: 5em;
     font-weight: 900;
-    margin: 0; /* Réinitialisé pour cohérence */
-    padding: 70px; /* Aligné avec le style h1 de darius1.css */
-    background-image: url(images/h1.png); /* Ajouté pour cohérence avec les autres h1 */
+    margin: 0;
+    padding: 70px;
+    background-image: url(images/h1.png);
     text-align: center;
 }
 
 .p {
     color: white;
     font-family: 'Manrope', sans-serif;
-    font-size: 1.4em; /* Réduit pour correspondre aux autres pages */
+    font-size: 1.4em;
     font-weight: 900;
     margin: 5px;
     display: flex;
@@ -145,12 +153,11 @@ h3, h6 {
 
 .conteneur {
     display: flex;
-    flex-direction: row; /* Changé en row pour correspondre à darius1.css */
-    justify-content: space-around; /* Aligné avec darius1.css */
+    flex-direction: column; /* Changé en column pour s'étendre verticalement */
+    justify-content: center; /* Centre le contenu verticalement */
     align-items: center;
     flex: 1; /* S'étend pour remplir .accueil */
-    gap: 10%; /* Aligné avec darius1.css */
-    flex-wrap: wrap; /* Ajouté pour responsivité */
+    gap: 10%;
     width: 100%;
     box-sizing: border-box;
 }
@@ -159,11 +166,11 @@ footer {
     background-image: url(images/cs.png);
     font-family: 'Manrope', sans-serif;
     font-size: 1.5em;
-    padding: 20px; /* Padding pour lisibilité, aligné avec darius1.css */
+    padding: 20px;
     text-align: center;
     flex-shrink: 0;
     width: 100%;
-    box-sizing: border-box; /* Aligné avec darius1.css */
+    box-sizing: border-box;
 }
 
 .tokoss2 {
@@ -176,27 +183,37 @@ footer {
 
 /* Media Queries pour petits écrans */
 @media (max-width: 480px) {
-    header, footer {
+    header {
         font-size: 1em;
-        padding: 5px; /* Réduit pour petits écrans */
-        height: 50px; /* Aligné avec darius1.css */
+        padding: 5px;
+        min-height: 50px; /* Ajusté pour flexibilité */
+    }
+    nav {
+        flex-direction: column; /* Liens en colonne pour éviter le débordement */
+        align-items: center;
+    }
+    .ok {
+        margin-left: 0; /* Supprime la marge horizontale */
+        margin: 5px 0; /* Ajoute une marge verticale */
+        font-size: 1em; /* Réduit la taille pour petits écrans */
+    }
+    footer {
+        font-size: 1em;
+        padding: 10px;
     }
     .od {
-        font-size: 2.5em; /* Aligné avec h1 de darius1.css */
+        font-size: 2.5em;
         padding: 20px;
     }
     .p {
-        font-size: 1em; /* Réduit pour petits écrans */
-    }
-    .ok {
-        margin-left: 10px;
+        font-size: 1em;
     }
     .tokoss2 {
         flex-direction: column;
         gap: 10px;
     }
     .conteneur {
-        flex-direction: column; /* Changé en colonne pour petits écrans */
+        flex-direction: column;
         gap: 5px;
     }
 }
