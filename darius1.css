@@ -1,3 +1,8 @@
+/* Appliquer box-sizing globalement pour éviter les problèmes de largeur */
+* {
+    box-sizing: border-box;
+}
+
 /* Style global pour body */
 body {
     background-color: white;
@@ -10,7 +15,8 @@ body {
     min-height: 100vh; /* Garantit que le body remplit la fenêtre */
     font-family: 'Manrope', 'Montserrat', sans-serif;
     overflow-x: hidden; /* Empêche le débordement horizontal */
-    height: 100%; /* Ajout pour garantir la chaîne de hauteur */
+    width: 100%; /* Assure que body prend toute la largeur */
+    height: 100%; /* Garantit la chaîne de hauteur */
 }
 
 header {
@@ -21,12 +27,11 @@ header {
     left: 0;
     font-family: 'Manrope', sans-serif;
     font-size: 1.5em;
-    background-color: beyaz;
+    background-color: white; /* Corrigé "beyaz" en "white" */
     padding: 10px;
     text-align: center;
     z-index: 1000;
     min-height: 60px; /* Hauteur minimale au lieu de fixe pour flexibilité */
-    box-sizing: border-box; /* Inclut le padding dans la largeur */
     display: flex; /* Ajouté pour utiliser flexbox */
     justify-content: center; /* Centre les éléments */
     align-items: center; /* Centre verticalement */
@@ -49,7 +54,6 @@ main {
     flex-direction: column;
     min-height: calc(100vh - 100px); /* Hauteur minimale pour remplir l'écran */
     width: 100%; /* Assure que main prend toute la largeur */
-    box-sizing: border-box; /* Inclut le padding dans la largeur */
 }
 
 #background-video {
@@ -69,11 +73,11 @@ footer {
     background-attachment: fixed;
     font-family: 'Manrope', sans-serif;
     font-size: 1.5em;
-    width: 100%;
+    width: 100%; /* Assure que footer prend toute la largeur */
     text-align: center;
     padding: 20px;
     flex-shrink: 0; /* Empêche le footer de rétrécir */
-    box-sizing: border-box; /* Inclut le padding dans la largeur */
+    margin: 0; /* Supprime toute marge parasite */
 }
 
 /* Lien (a) */
@@ -242,6 +246,7 @@ p, h1, h3, h4, h6, h5, .pro, .site, .ct, .tt, .tkt, .center, .lien, .Contact, .o
     justify-content: space-around;
     flex-wrap: wrap;
     flex: 1; /* S'étend pour remplir main */
+    width: 100%; /* Assure que tokoss2 prend toute la largeur dans le footer */
 }
 
 .t {
@@ -348,7 +353,6 @@ textarea {
     min-height: 150px; /* Hauteur minimale pour rester utilisable */
     flex-grow: 1; /* Permet au textarea de s'étendre si nécessaire */
     max-width: 100%; /* Empêche le dépassement */
-    box-sizing: border-box; /* Inclut padding dans la largeur */
 }
 
 input {
@@ -358,7 +362,6 @@ input {
     padding: 20px;
     width: 100%; /* Remplace size="80px" */
     max-width: 100%; /* Empêche le dépassement */
-    box-sizing: border-box; /* Inclut padding dans la largeur */
 }
 
 label {
@@ -394,7 +397,6 @@ label {
     margin: 5px;
     box-shadow: 6px 6px 15px 10px rgb(245, 244, 244);
     padding: 16px;
-    box-sizing: border-box;
     max-width: 100%; /* Empêche le dépassement */
 }
 
@@ -448,6 +450,8 @@ span {
 @media (max-width: 480px) {
     body {
         padding: 0;
+        width: 100%; /* Réaffirme que body prend toute la largeur */
+        margin: 0; /* Supprime toute marge parasite */
     }
     header {
         font-size: 1em; /* Réduit la taille de police pour gagner de l'espace */
@@ -457,6 +461,7 @@ span {
     nav {
         flex-direction: column; /* Passe les liens en disposition verticale */
         align-items: center; /* Centre les liens verticalement */
+        width: 100%; /* Assure que nav reste à 100% */
     }
     .ok {
         margin-left: 0; /* Supprime la marge à gauche */
@@ -469,10 +474,20 @@ span {
         min-height: calc(100vh - 70px);
         display: flex; /* Assurez-vous que main reste un flex container */
         flex-direction: column;
+        width: 100%; /* Réaffirme que main prend toute la largeur */
+        padding-left: 0; /* Supprime tout padding parasite */
+        padding-right: 0;
     }
     footer {
         font-size: 1em;
         padding: 10px;
+        width: 100%; /* Réaffirme que footer prend toute la largeur */
+        margin: 0; /* Supprime toute marge parasite */
+    }
+    .tokoss2 {
+        width: 100%; /* Assure que le conteneur dans le footer prend toute la largeur */
+        padding-left: 0; /* Supprime tout padding parasite */
+        padding-right: 0;
     }
     h1 {
         font-size: 2.5em;
@@ -490,6 +505,7 @@ span {
     .tokoss, .tokoss2, .tokoss3, .tokoss4, .tokoss5, .tokoss6 {
         flex-direction: column;
         gap: 10px;
+        width: 100%; /* Assure que ces conteneurs prennent toute la largeur */
     }
     .ecole, .Contact {
         margin-left: 2%;
@@ -497,10 +513,13 @@ span {
         font-size: 1.1em;
         min-height: 100%; /* Garantit que .Contact remplit main */
         flex: 1; /* Permet à .Contact de s'étendre */
+        width: 100%; /* Assure que ces éléments prennent toute la largeur */
     }
     .conta, form {
         flex-grow: 1; /* Permet au formulaire de s'étendre si nécessaire */
         width: 100%; /* Assure que le formulaire reste dans les limites */
+        padding-left: 0; /* Supprime tout padding parasite */
+        padding-right: 0;
     }
     input, textarea {
         width: 100%; /* Remplace la taille fixe */
@@ -515,6 +534,7 @@ span {
     }
     .tkt {
         flex-direction: column;
+        width: 100%; /* Assure que tkt prend toute la largeur */
     }
     .conteneur, .box, .vm, .open {
         width: 100%; /* Remplace les largeurs fixes */
@@ -524,6 +544,7 @@ span {
 @media (min-width: 481px) and (max-width: 767px) {
     body {
         padding: 0;
+        width: 100%;
     }
     header {
         font-size: 1.2em;
@@ -533,10 +554,12 @@ span {
         padding-top: 70px;
         padding-bottom: 15px;
         min-height: calc(100vh - 85px);
+        width: 100%;
     }
     footer {
         font-size: 1.2em;
         padding: 15px;
+        width: 100%;
     }
     h1 {
         font-size: 3em;
@@ -553,6 +576,7 @@ span {
     .tokoss, .tokoss2, .tokoss3, .tokoss4, .tokoss5, .tokoss6 {
         flex-direction: column;
         gap: 15px;
+        width: 100%;
     }
     .t {
         font-size: 1.8em;
@@ -565,6 +589,7 @@ span {
 @media (min-width: 768px) and (max-width: 1023px) {
     body {
         padding: 0;
+        width: 100%;
     }
     header {
         font-size: 1.3em;
@@ -573,10 +598,12 @@ span {
     main {
         padding-top: 80px;
         padding-bottom: 20px;
+        width: 100%;
     }
     footer {
         font-size: 1.3em;
         padding: 20px;
+        width: 100%;
     }
     h1 {
         font-size: 3.5em;
@@ -593,6 +620,7 @@ span {
         flex-direction: row;
         flex-wrap: wrap;
         gap: 20px;
+        width: 100%;
     }
     .t {
         font-size: 2em;
@@ -602,6 +630,7 @@ span {
 @media (min-width: 1024px) and (max-width: 1439px) {
     body {
         padding: 0;
+        width: 100%;
     }
     header {
         font-size: 1.4em;
@@ -609,9 +638,11 @@ span {
     main {
         padding-top: 80px;
         padding-bottom: 20px;
+        width: 100%;
     }
     footer {
         font-size: 1.4em;
+        width: 100%;
     }
     h1 {
         font-size: 4em;

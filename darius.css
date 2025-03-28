@@ -125,21 +125,25 @@ img {
     font-size: 3em;
     font-weight: 900;
     margin: 0;
-    padding: 70px;
-    
+    padding: 20px; /* Réduit de 70px à 20px pour moins d'espace */
     text-align: center;
 }
 
 .p {
     color: white;
     font-family: 'Manrope', sans-serif;
-    font-size: 2.4em;
+    font-size: 1.5em; /* Réduit de 2.4em à 1.5em pour un rendu plus compact */
     font-weight: 900;
-    margin: 5px;
+    margin: 0; /* Réduit l'espacement extérieur */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 5px; /* Ajoute un espacement contrôlé entre les éléments enfants */
+}
+
+.d {
+    margin: 0; /* Supprime les marges par défaut des <p> pour un contrôle précis */
 }
 
 h3, h6 {
@@ -156,7 +160,7 @@ h3, h6 {
     justify-content: center; /* Centre le contenu verticalement */
     align-items: center;
     flex: 1; /* S'étend pour remplir .accueil */
-    gap: 10%;
+    gap: 10px; /* Réduit de 10% à 10px pour un espacement fixe */
     width: 100%;
     box-sizing: border-box;
 }
@@ -208,11 +212,12 @@ footer {
         padding: 10px;
     }
     .od {
-        font-size: 2.5em;
-        padding: 20px;
+        font-size: 2em; /* Réduit de 2.5em à 2em pour compacter */
+        padding: 10px; /* Réduit de 20px à 10px */
     }
     .p {
-        font-size: 1em;
+        font-size: 0.9em; /* Réduit de 1em à 0.9em pour petits écrans */
+        gap: 3px; /* Réduit l'espacement entre les éléments */
     }
     .tokoss2 {
         flex-direction: column;
@@ -220,7 +225,7 @@ footer {
     }
     .conteneur {
         flex-direction: column;
-        gap: 5px;
+        gap: 5px; /* Réduit de 5px à 3px pour compacter davantage */
     }
 }
 
@@ -231,15 +236,16 @@ footer {
         padding: 8px;
     }
     .od {
-        font-size: 3em;
-        padding: 30px;
+        font-size: 2.5em; /* Ajusté pour tablettes */
+        padding: 15px; /* Réduit pour compacter */
     }
     .p {
         font-size: 1.2em;
+        gap: 5px; /* Espacement contrôlé */
     }
     .conteneur {
         flex-direction: column;
-        gap: 10px;
+        gap: 8px; /* Ajusté pour tablettes */
     }
 }
 
@@ -249,10 +255,11 @@ footer {
         font-size: 1.3em;
     }
     .od {
-        font-size: 3.5em;
-        padding: 40px;
+        font-size: 3em; /* Réduit légèrement */
+        padding: 20px; /* Ajusté */
     }
     .p {
         font-size: 1.3em;
+        gap: 8px; /* Espacement contrôlé */
     }
 }
