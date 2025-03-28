@@ -26,28 +26,35 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Remplace height par min-height pour flexibilité */
-    background-color: white; /* Ajouté pour cohérence */
+    min-height: 100vh; /* Garantit une hauteur minimale pleine écran */
+    background-color: white;
 }
 
 header {
     font-family: 'Manrope', sans-serif;
     font-size: 1.5em;
     background-image: url(images/cs.png);
-    padding: 0px;
+    padding: 0; /* Pas de padding interne pour aligner les liens */
     text-align: center;
-    position: fixed; /* Fixe le header en haut */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Assure que le header reste au-dessus */
-    height: 60px; /* Hauteur fixe pour cohérence */
+    z-index: 1000;
+    height: 60px; /* Hauteur fixe */
+    display: flex; /* Ajouté pour aligner les liens horizontalement */
+    justify-content: center;
+    align-items: center;
 }
 
 main {
     flex: 1; /* Prend tout l'espace disponible entre header et footer */
-    padding-top: 4px; /* Compense la hauteur du header */
-    padding-bottom: 4px; /* Ajoute un espace avant le footer */
+    padding-top: 60px; /* Compense la hauteur fixe du header */
+    padding-bottom: 0; /* Retiré le padding-bottom pour que le footer soit collé */
+    position: relative; /* Contexte pour la vidéo en arrière-plan */
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 60px); /* Ajouté pour garantir la hauteur minimale */
 }
 
 #background-video {
@@ -55,13 +62,13 @@ main {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100%; /* Couvre toute la hauteur de main */
     object-fit: cover; /* Couvre tout l'arrière-plan */
     z-index: -1; /* Derrière le contenu */
 }
 
-.acceuil {
-    height: 100%; /* Occupe toute la hauteur disponible dans main */
+.accueil {
+    flex: 1; /* S'étend pour remplir main */
     display: flex;
     flex-direction: column;
     background-size: cover;
@@ -117,6 +124,11 @@ img {
     font-size: 2em;
     font-weight: 900;
     margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1; /* Ajouté pour que .p s'étende dans .conteneur */
+    justify-content: center; /* Centre verticalement le contenu */
 }
 
 h3, h6 {
@@ -132,8 +144,7 @@ h3, h6 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    min-height: 100%; /* Remplace height: 600px pour s'adapter à l'écran */
+    flex: 1; /* S'étend pour remplir .accueil */
     gap: 5px;
 }
 
@@ -141,7 +152,7 @@ footer {
     background-image: url(images/cs.png);
     font-family: 'Manrope', sans-serif;
     font-size: 1.5em;
-    padding: 0px; /* Rétablit un padding pour lisibilité */
+    padding: 20px; /* Padding pour lisibilité */
     text-align: center;
     flex-shrink: 0;
 }

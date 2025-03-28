@@ -7,7 +7,7 @@ body {
     flex-direction: column;
     margin: 0;
     padding: 0;
-    min-height: 100vh; /* Garantit que le body prend au moins toute la hauteur de l'écran */
+    min-height: 100vh; /* Garantit que le body remplit la fenêtre */
     font-family: 'Manrope', 'Montserrat', sans-serif;
 }
 
@@ -20,18 +20,20 @@ header {
     font-family: 'Manrope', sans-serif;
     font-size: 1.5em;
     background-color: white;
-    padding: 10px; /* Rétablit un padding raisonnable */
+    padding: 10px;
     text-align: center;
     z-index: 1000;
-    height: 60px; /* Hauteur fixe */
+    height: 60px;
 }
 
 main {
-    flex: 1; /* Remplit l'espace entre header et footer */
-    padding-top: 80px; /* Compense la hauteur du header (60px + 10px padding + marge) */
-    padding-bottom: 20px; /* Ajoute un espace avant le footer */
+    flex: 1; /* S'étend pour remplir l'espace disponible */
+    padding-top: 80px; /* Compense la hauteur du header */
+    padding-bottom: 20px;
     position: relative;
-    min-height: calc(100vh - 100px); /* Hauteur minimale pour remplir l'écran moins header et footer */
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 100px); /* Hauteur minimale pour remplir l'écran */
 }
 
 #background-video {
@@ -39,9 +41,9 @@ main {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100%; /* Couvre toute la hauteur de main */
     object-fit: cover;
-    z-index: -1; /* Derrière le contenu de main */
+    z-index: -1;
 }
 
 footer {
@@ -53,7 +55,7 @@ footer {
     font-size: 1.5em;
     width: 100%;
     text-align: center;
-    padding: 20px; /* Augmente le padding pour un footer plus visible */
+    padding: 20px;
     flex-shrink: 0; /* Empêche le footer de rétrécir */
 }
 
@@ -113,7 +115,7 @@ h3, h4, h6 {
 }
 
 /* Appliquer l'animation au texte */
-p, h1, h3, h4, h6, .pro, .site, .ct, .tkt, .center, .lien, .Contact {
+p, h1, h3, h4, h6, h5, .pro, .site, .ct,  .tt, .tkt, .center, .lien, .Contact, .ot1 {
     animation: slide-in 1.5s ease-out;
 }
 
@@ -131,6 +133,7 @@ p, h1, h3, h4, h6, .pro, .site, .ct, .tkt, .center, .lien, .Contact {
     border-radius: 50%;
     border: 2px solid whitesmoke;
     box-shadow: 6px 6px 30px whitesmoke;
+    text-align: center;
 }
 
 .site:hover {
@@ -196,18 +199,18 @@ p, h1, h3, h4, h6, .pro, .site, .ct, .tkt, .center, .lien, .Contact {
     flex-wrap: wrap;
     box-shadow: 2px 2px 3px;
     z-index: 1;
-    min-height: 100%; /* S'assure que le conteneur remplit l'espace */
+    flex: 1; /* S'étend pour remplir main */
 }
 
 /* Flex column conteneur .tokoss3 */
 .tokoss3 {
-    height: 100%;
     background-size: cover;
     position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     justify-items: center;
+    flex: 1; /* S'étend pour remplir main */
 }
 
 /* Conteneur flex pour les éléments de .tokoss2 */
@@ -217,6 +220,7 @@ p, h1, h3, h4, h6, .pro, .site, .ct, .tkt, .center, .lien, .Contact {
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
+    flex: 1; /* S'étend pour remplir main */
 }
 
 .t {
@@ -241,7 +245,7 @@ p, h1, h3, h4, h6, .pro, .site, .ct, .tkt, .center, .lien, .Contact {
 }
 
 .tkt a {
-    color: black;
+    color: white; /* Changé de black à white pour cohérence avec les liens */
 }
 
 .lien {
@@ -255,6 +259,7 @@ p, h1, h3, h4, h6, .pro, .site, .ct, .tkt, .center, .lien, .Contact {
 
 .veille {
     position: relative;
+    flex: 1; /* Ajout pour s'assurer que la classe veille s'étend */
 }
 
 .open {
@@ -273,6 +278,12 @@ p, h1, h3, h4, h6, .pro, .site, .ct, .tkt, .center, .lien, .Contact {
 
 .tkt {
     color: black;
+    display: flex;
+    flex-direction: row; /* Changé pour colonne pour Profil */
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-grow: 1; /* Permet de s'étendre dans main */
+    margin-top: 5%;
 }
 
 .ov {
@@ -292,7 +303,7 @@ p, h1, h3, h4, h6, .pro, .site, .ct, .tkt, .center, .lien, .Contact {
     justify-content: space-around;
     gap: 2%;
     flex-wrap: wrap;
-    min-height: 100%; /* S'assure que ces conteneurs remplissent l'espace */
+    flex: 1; /* S'étend pour remplir main */
 }
 
 .ecole {
@@ -302,8 +313,8 @@ p, h1, h3, h4, h6, .pro, .site, .ct, .tkt, .center, .lien, .Contact {
     font-family: 'Manrope', sans-serif;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between; /* Répartit le contenu verticalement */
+    flex-grow: 1; /* S'étend pour remplir main */
 }
 
 textarea {
@@ -327,6 +338,7 @@ label {
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
+    flex: 1; /* S'étend pour remplir main */
 }
 
 .conteneur {
@@ -338,7 +350,7 @@ label {
     align-items: center;
     gap: 10%;
     flex-wrap: wrap;
-    min-height: 100%; /* S'assure que le conteneur remplit l'espace */
+    flex: 1; /* S'étend pour remplir main */
 }
 
 .box {
@@ -346,6 +358,8 @@ label {
     width: 40%;
     margin: 5px;
     box-shadow: 6px 6px 15px 10px rgb(245, 244, 244);
+    padding: 16px;
+    box-sizing: border-box;
 }
 
 .pro {
@@ -364,6 +378,7 @@ label {
     font-size: 1.4em;
     font-family: 'Manrope', sans-serif;
     text-align: justify;
+    flex-grow: 1; /* Ajout pour que le paragraphe s'étende dans Profil */
 }
 
 span {
@@ -377,7 +392,7 @@ span {
     font-size: 1.7em;
     font-family: 'Manrope', sans-serif;
     font-weight: bolder;
-    width: 20%;
+    width: auto;
     height: 50px;
     text-align: center;
     box-shadow: 6px 6px 15px 10px rgb(245, 244, 244);
@@ -386,42 +401,27 @@ span {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.tkt a {
-    color: white;
+    margin: 10px ; /* Ajout d'espacement entre les boutons */
 }
 
 .ct:hover {
     color: rgb(67, 36, 177);
 }
 
-.tkt {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-top: 5%;
-}
-
-.center {
-    animation: slide-in 1.5s ease-out;
-}
-
 /* Media Queries */
 @media (max-width: 480px) {
     body {
-        padding: 0; /* Supprime le padding excessif sur petits écrans */
+        padding: 0;
     }
     header {
         font-size: 1em;
         padding: 5px;
-        height: 50px; /* Réduit la hauteur du header */
+        height: 50px;
     }
     main {
-        padding-top: 60px; /* Ajuste pour le header réduit */
+        padding-top: 60px;
         padding-bottom: 10px;
-        min-height: calc(100vh - 70px); /* Ajuste pour header et footer */
+        min-height: calc(100vh - 70px);
     }
     footer {
         font-size: 1em;
@@ -458,7 +458,11 @@ span {
         font-size: 1.5em;
     }
     .ot {
-        font-size: 1.2em; /* Réduction supplémentaire pour petits écrans */
+        font-size: 1.2em;
+    }
+    .tkt {
+        flex-direction: column;
+
     }
 }
 
@@ -592,28 +596,7 @@ span {
     }
 }
 
-.box {
-    font-family: 'Manrope', sans-serif;
-    border: solid 10px rgb(182, 181, 181);
-    width: 40%;
-    margin: 5px;
-    box-shadow: 6px 6px 15px 10px rgb(245, 244, 244);
-    overflow: hidden;
-    padding: 16px;
-    box-sizing: border-box;
-}
-
-.conteneur {
-    font-family: 'Manrope', sans-serif;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    gap: 0%;
-    flex-wrap: wrap;
-    animation: slide-in 1.5s ease-out forwards;
-    min-height: 100%; /* S'assure que le conteneur remplit l'espace */
-}
-
+/* Classes spécifiques */
 .bts {
     background-image: url(images/h1.png);
     margin: 0;
