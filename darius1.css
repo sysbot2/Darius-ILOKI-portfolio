@@ -183,6 +183,19 @@ p, h1, h3, h4, h6, h5, .pro, .site, .ct, .tt, .tkt, .center, .lien, .Contact, .o
     margin-right: 2%; /* Marge droite spécifique */
 }
 
+.ob1{
+    width: 300px; /* Largeur par défaut */
+    height: 300px; /* Hauteur par défaut */
+    border-radius: 50%; /* Forme ronde */
+    margin: 0 auto; /* Centre horizontalement avec auto */
+    padding: 16px; /* Espacement interne */
+    animation: slide-in 2.5s ease-out; /* Animation plus longue */
+    max-width: 100%; /* Empêche le dépassement */
+    display: block;
+
+
+}
+
 .occ {
     width: 300px; /* Largeur par défaut */
     height: 300px; /* Hauteur par défaut */
@@ -550,7 +563,7 @@ span {
         width: 100%; /* Pleine largeur */
         font-size: 1em; /* Réduit la taille */
     }
-    .ob, .oc, .occ, .ov {
+    .ob, .oc, .occ, .ov, .ob1 {
         width: 150px; /* Réduit la taille des images */
         height: 150px; /* Réduit la taille des images */
         padding: 8px; /* Réduit le padding */
@@ -648,7 +661,7 @@ span {
         width: 80%; /* Largeur réduite */
         font-size: 1.1em; /* Taille ajustée */
     }
-    .ob, .oc, .occ, .ov {
+    .ob, .oc, .occ, .ov, .ob1 {
         width: 200px; /* Taille ajustée */
         height: 200px; /* Taille ajustée */
     }
@@ -691,7 +704,7 @@ span {
     .site {
         width: 50%; /* Largeur réduite */
     }
-    .ob, .oc, .occ, .ov {
+    .ob, .oc, .occ, .ov, .ob1 {
         width: 250px; /* Taille ajustée */
         height: 250px; /* Taille ajustée */
     }
