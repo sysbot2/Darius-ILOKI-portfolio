@@ -56,6 +56,8 @@ main {
     flex-direction: column; /* Contenu aligné verticalement */
     min-height: calc(100vh - 100px); /* Hauteur minimale pour remplir l'écran */
     width: 100%; /* Prend toute la largeur */
+    font-family: 'Manrope', sans-serif; /* Police uniforme comme dans BTS.html */
+    color: black; /* Couleur par défaut comme dans BTS.html */
 }
 
 /* Styles pour la vidéo de fond */
@@ -183,7 +185,7 @@ p, h1, h3, h4, h6, h5, .pro, .site, .ct, .tt, .tkt, .center, .lien, .Contact, .o
     margin-right: 2%; /* Marge droite spécifique */
 }
 
-.ob1{
+.ob1 {
     width: 300px; /* Largeur par défaut */
     height: 300px; /* Hauteur par défaut */
     border-radius: 50%; /* Forme ronde */
@@ -192,8 +194,6 @@ p, h1, h3, h4, h6, h5, .pro, .site, .ct, .tt, .tkt, .center, .lien, .Contact, .o
     animation: slide-in 2.5s ease-out; /* Animation plus longue */
     max-width: 100%; /* Empêche le dépassement */
     display: block;
-
-
 }
 
 .occ {
@@ -280,13 +280,34 @@ p, h1, h3, h4, h6, h5, .pro, .site, .ct, .tt, .tkt, .center, .lien, .Contact, .o
     font-size: 2.5em; /* Grande taille de police */
 }
 
+/* Restauration de .vm avec texte entièrement contenu et moins d'espacement */
 .vm {
     border: solid 10px rgb(182, 181, 181); /* Bordure grise */
-    width: 40%; /* Largeur par défaut */
-    margin: 5px; /* Marge extérieure */
-    box-shadow: 6px 6px 15px 5px rgb(245, 244, 244); /* Ombre ajustée pour page Veille */
-    font-size: 1.4em; /* Taille de police */
-    max-width: 100%; /* Empêche le dépassement */
+    width: 400px; /* Largeur fixe pour un carré */
+    height: 400px; /* Hauteur fixe égale à la largeur */
+    margin: 20px auto; /* Centrage horizontal avec marge verticale */
+    padding: 8px; /* Réduit l'espacement interne */
+    box-shadow: 6px 6px 15px 10px rgb(245, 244, 244); /* Ombre prononcée */
+    font-size: 1.2em; /* Réduit légèrement la taille pour plus de texte visible */
+    text-align: justify; /* Texte justifié */
+    display: block; /* Contrôle strict du contenu */
+    overflow: auto; /* Défilement si le texte dépasse */
+}
+
+/* Supprimer les marges des éléments internes de .vm */
+.vm p, .vm .box {
+    margin: 0; /* Supprime toutes les marges des <p> et .box à l'intérieur */
+    padding: 0; /* Supprime le padding interne pour maximiser l'espace */
+    width: 100%; /* Pleine largeur dans .vm */
+}
+
+/* Surcharge pour .vm dans .tokoss4 */
+.tokoss4 .vm {
+    grid-column: 1 / -1; /* Étend .vm sur toutes les colonnes pour centrage */
+    justify-self: center; /* Centre dans la grille */
+    width: 400px; /* Conserver la largeur fixe */
+    height: 400px; /* Conserver la hauteur fixe */
+    margin: 20px auto; /* Centrage avec marge */
 }
 
 .tkt a {
@@ -343,15 +364,82 @@ p, h1, h3, h4, h6, h5, .pro, .site, .ct, .tt, .tkt, .center, .lien, .Contact, .o
     max-width: 100%; /* Empêche le dépassement */
 }
 
-.tokoss4, .tokoss5, .tokoss6 {
+/* Conteneur spécifique pour la page Réalisations */
+.tokoss4 {
     background-size: cover; /* Couvre toute la zone */
-    display: flex; /* Flexbox pour alignement */
-    flex-direction: row; /* Disposition horizontale */
-    justify-content: space-around; /* Espacement équilibré */
-    gap: 2%; /* Espace entre éléments */
-    flex-wrap: wrap; /* Permet le retour à la ligne */
+    display: grid; /* Utilise grid pour garantir 4 blocs par ligne */
+    grid-template-columns: repeat(4, 1fr); /* 4 colonnes de largeur égale pour 2 rangées de 4 */
+    gap: 2%; /* Espace entre les blocs */
+    justify-items: center; /* Centre les éléments horizontalement dans leurs cellules */
+    align-items: center; /* Centre les éléments verticalement dans leurs cellules */
     flex: 1; /* S'étend pour remplir main */
     width: 100%; /* Assure pleine largeur */
+    position: relative; /* Pour la vidéo de fond */
+}
+
+/* Ajuster les éléments <a> dans .tokoss4 pour qu'ils occupent bien l'espace */
+.tokoss4 a {
+    width: 100%; /* Chaque bloc prend toute la largeur de sa cellule */
+    text-align: center; /* Centre le contenu */
+    display: flex; /* Utilise flex pour aligner le contenu interne */
+    flex-direction: column; /* Contenu en colonne (image + texte) */
+    align-items: center; /* Centre horizontalement */
+    justify-content: center; /* Centre verticalement */
+}
+
+/* Ajuster les images dans .tokoss4 pour uniformité */
+.tokoss4 .ob {
+    width: 200px; /* Taille fixe pour cohérence sur toutes les tailles d'écran */
+    height: 200px; /* Taille fixe pour cohérence sur toutes les tailles d'écran */
+    border-radius: 50%; /* Conserver la forme ronde */
+    padding: 16px; /* Espacement interne */
+    animation: slide-in 2.5s ease-out; /* Conserver l'animation */
+    max-width: 100%; /* Empêche le dépassement */
+}
+
+/* Ajuster les titres dans .tokoss4 pour lisibilité */
+.tokoss4 h3.dh {
+    font-size: 1.2em; /* Taille ajustée pour éviter le débordement */
+    margin: 10px 0; /* Espacement vertical */
+    color: white; /* Conserver la couleur */
+}
+
+/* Conteneurs pour autres pages (ex. Veille) */
+.tokoss5, .tokoss6 {
+    background-size: cover; /* Couvre toute la zone */
+    display: flex; /* Restaure flexbox pour flexibilité */
+    flex-direction: row; /* Disposition horizontale */
+    flex-wrap: wrap; /* Permet le retour à la ligne */
+    justify-content: space-around; /* Espacement équilibré */
+    align-items: center; /* Centre verticalement */
+    flex: 1; /* S'étend pour remplir main */
+    width: 100%; /* Assure pleine largeur */
+    position: relative; /* Pour la vidéo de fond */
+}
+
+/* Styles pour .box (général) */
+.box {
+    border: solid 10px rgb(182, 181, 181); /* Bordure grise */
+    width: 45%; /* Ajusté pour 2 blocs côte à côte (moins de 50% pour marges) */
+    margin: 10px 2%; /* Marges uniformes, réduites latéralement */
+    box-shadow: 6px 6px 15px 10px rgb(245, 244, 244); /* Ombre portée */
+    padding: 16px; /* Espacement interne */
+    max-width: 100%; /* Empêche le dépassement */
+}
+
+/* Styles spécifiques pour la page Projets et BTS */
+.conteneur {
+    font-size: 1.4em; /* Taille de police */
+    font-family: 'Manrope', sans-serif; /* Police spécifique */
+    display: flex; /* Flexbox pour alignement */
+    flex-direction: row; /* Disposition horizontale */
+    justify-content: space-between; /* Espacement équilibré entre les 2 blocs */
+    align-items: flex-start; /* Aligne les blocs en haut */
+    gap: 20px; /* Espace fixe entre les blocs */
+    flex-wrap: nowrap; /* Empêche le retour à la ligne pour 2 blocs */
+    flex: 1; /* S'étend pour remplir main */
+    width: 100%; /* Pleine largeur */
+    padding: 0 2%; /* Marge intérieure légère pour éviter les bords */
 }
 
 .ecole {
@@ -395,29 +483,6 @@ label {
     flex: 1; /* S'étend pour remplir main */
     width: 100%; /* Pleine largeur */
     min-height: 100%; /* Occupe toute la hauteur de main */
-}
-
-/* Styles spécifiques pour la page Projets */
-.conteneur {
-    font-size: 1.4em; /* Taille de police */
-    font-family: 'Manrope', sans-serif; /* Police spécifique */
-    display: flex; /* Flexbox pour alignement */
-    flex-direction: row; /* Disposition horizontale */
-    justify-content: space-around; /* Espacement équilibré */
-    align-items: center; /* Centre verticalement */
-    gap: 10%; /* Espace entre éléments par défaut */
-    flex-wrap: wrap; /* Permet le retour à la ligne */
-    flex: 1; /* S'étend pour remplir main */
-    width: 100%; /* Pleine largeur */
-}
-
-.box {
-    border: solid 10px rgb(182, 181, 181); /* Bordure grise */
-    width: 40%; /* Largeur par défaut */
-    margin: 5px; /* Marge extérieure */
-    box-shadow: 6px 6px 15px 10px rgb(245, 244, 244); /* Ombre portée */
-    padding: 16px; /* Espacement interne */
-    max-width: 100%; /* Empêche le dépassement */
 }
 
 /* Styles spécifiques pour la page Profil */
@@ -510,7 +575,7 @@ span {
     letter-spacing: normal; /* Espacement des lettres */
 }
 
-/* Media Queries (déplacés en bas) */
+/* Media Queries */
 @media (max-width: 480px) {
     body {
         padding: 0; /* Supprime le padding */
@@ -563,15 +628,39 @@ span {
         width: 100%; /* Pleine largeur */
         font-size: 1em; /* Réduit la taille */
     }
-    .ob, .oc, .occ, .ov, .ob1 {
+    .ob, .oc, .occ, .ov {
         width: 150px; /* Réduit la taille des images */
         height: 150px; /* Réduit la taille des images */
         padding: 8px; /* Réduit le padding */
     }
     .tokoss, .tokoss2, .tokoss3, .tokoss4, .tokoss5, .tokoss6 {
-        flex-direction: column; /* Disposition verticale */
+        flex-direction: column; /* Disposition verticale pour les autres conteneurs */
         gap: 10px; /* Espace entre éléments */
         width: 100%; /* Pleine largeur */
+    }
+    .tokoss4 {
+        grid-template-columns: 1fr; /* Une seule colonne pour centrer .vm */
+    }
+    .tokoss4 .ob {
+        width: 100px; /* Réduit la taille des images pour petits écrans */
+        height: 100px; /* Réduit la taille des images pour petits écrans */
+    }
+    .tokoss4 h3.dh {
+        font-size: 0.9em; /* Réduit la taille du texte pour lisibilité */
+    }
+    .tokoss4 .vm {
+        width: 300px; /* Réduit pour petits écrans */
+        height: 300px; /* Réduit pour petits écrans */
+        margin: 10px auto; /* Centrage avec marge réduite */
+    }
+    .conteneur {
+        flex-direction: column; /* Vertical sur petits écrans */
+        gap: 10px; /* Réduit l'espace */
+        padding: 0; /* Supprime padding */
+    }
+    .box {
+        width: 100%; /* Pleine largeur sur petits écrans */
+        margin: 10px 0; /* Marges haut/bas uniquement */
     }
     .ecole, .Contact {
         margin-left: 2%; /* Marge réduite */
@@ -581,7 +670,6 @@ span {
         flex: 1; /* S'étend dans main */
         width: 100%; /* Pleine largeur */
     }
-    /* Ajustements pour la page Contact */
     .conta, form {
         flex-grow: 1; /* S'étend dans .Contact */
         width: 80%; /* Largeur réduite pour centrage */
@@ -595,19 +683,6 @@ span {
         font-size: 1em; /* Taille réduite */
         padding: 10px; /* Padding réduit */
     }
-    /* Ajustements pour la page Veille */
-    .vm {
-        box-shadow: 4px 4px 10px 2px rgb(245, 244, 244); /* Ombre réduite pour proportion au texte */
-        width: auto; /* Largeur adaptée au contenu */
-        max-width: 90%; /* Limite la largeur maximale */
-        margin: 10px auto; /* Centre horizontalement */
-        padding: 10px; /* Réduit le padding pour supprimer l'espace inutile */
-    }
-    /* Ajustements pour la page Profil */
-    .ct {
-        box-shadow: 10px 10px 30px 15px rgb(245, 244, 244); /* Ombre augmentée pour petits écrans */
-        padding: 8px 16px; /* Padding ajusté */
-    }
     .t {
         font-size: 1.5em; /* Réduit la taille */
     }
@@ -618,17 +693,13 @@ span {
         flex-direction: column; /* Disposition verticale */
         width: 100%; /* Pleine largeur */
     }
-    /* Ajustements pour la page Projets */
-    .conteneur {
-        gap: 5px; /* Réduit encore plus l'espace entre éléments */
-    }
     .pr {
         margin-left: 1%; /* Marge très réduite pour compacter */
         margin-right: 1%; /* Marge très réduite pour compacter */
         font-size: 1.1em; /* Taille réduite pour compacter davantage */
         padding: 5px; /* Réduit le padding pour rapprocher le contenu */
     }
-    .conteneur, .box, .vm, .open {
+    .conteneur, .open {
         width: 100%; /* Pleine largeur */
     }
 }
@@ -661,20 +732,31 @@ span {
         width: 80%; /* Largeur réduite */
         font-size: 1.1em; /* Taille ajustée */
     }
-    .ob, .oc, .occ, .ov, .ob1 {
+    .ob, .oc, .occ, .ov {
         width: 200px; /* Taille ajustée */
         height: 200px; /* Taille ajustée */
     }
     .tokoss, .tokoss2, .tokoss3, .tokoss4, .tokoss5, .tokoss6 {
-        flex-direction: column; /* Disposition verticale */
+        flex-direction: column; /* Disposition verticale pour les autres conteneurs */
         gap: 15px; /* Espace entre éléments */
         width: 100%; /* Pleine largeur */
+    }
+    .tokoss4 {
+        grid-template-columns: 1fr; /* Une seule colonne pour centrer .vm */
+    }
+    .conteneur {
+        flex-direction: column; /* Vertical sur écrans moyens */
+        gap: 15px; /* Espace ajusté */
+    }
+    .box {
+        width: 100%; /* Pleine largeur */
+        margin: 10px 0; /* Marges haut/bas uniquement */
     }
     .t {
         font-size: 1.8em; /* Taille ajustée */
     }
     .ot {
-        font-size: 1.3em; /* Taille ajustée */
+        font-size: 1.3em; /* Réduit la taille */
     }
 }
 
@@ -704,15 +786,27 @@ span {
     .site {
         width: 50%; /* Largeur réduite */
     }
-    .ob, .oc, .occ, .ov, .ob1 {
+    .ob, .oc, .occ, .ov {
         width: 250px; /* Taille ajustée */
         height: 250px; /* Taille ajustée */
     }
-    .tokoss, .tokoss2, .tokoss3, .tokoss4, .tokoss5, .tokoss6 {
-        flex-direction: row; /* Disposition horizontale */
+    .tokoss, .tokoss2, .tokoss3, .tokoss5, .tokoss6 {
+        flex-direction: row; /* Disposition horizontale pour les autres conteneurs */
         flex-wrap: wrap; /* Permet le retour à la ligne */
         gap: 20px; /* Espace entre éléments */
         width: 100%; /* Pleine largeur */
+    }
+    .tokoss4 {
+        grid-template-columns: repeat(4, 1fr); /* Conserver 4 colonnes pour Réalisations */
+    }
+    .conteneur {
+        flex-direction: row; /* Horizontal pour 2 blocs */
+        flex-wrap: nowrap; /* Pas de retour à la ligne */
+        gap: 20px; /* Espace entre blocs */
+    }
+    .box {
+        width: 45%; /* Ajusté pour 2 blocs côte à côte */
+        margin: 10px 2%; /* Marges réduites */
     }
     .t {
         font-size: 2em; /* Taille ajustée */
@@ -745,6 +839,9 @@ span {
     .t {
         font-size: 2.5em; /* Taille ajustée */
     }
+    .tokoss4 {
+        grid-template-columns: repeat(4, 1fr); /* Conserver 4 colonnes pour Réalisations */
+    }
 }
 
 @media (min-width: 1440px) and (max-width: 1919px) {
@@ -753,6 +850,9 @@ span {
     }
     .t {
         font-size: 3em; /* Taille ajustée */
+    }
+    .tokoss4 {
+        grid-template-columns: repeat(4, 1fr); /* Conserver 4 colonnes pour Réalisations */
     }
 }
 
@@ -763,6 +863,9 @@ span {
     .t {
         font-size: 3.5em; /* Taille ajustée */
     }
+    .tokoss4 {
+        grid-template-columns: repeat(4, 1fr); /* Conserver 4 colonnes pour Réalisations */
+    }
 }
 
 @media (min-width: 3840px) {
@@ -771,5 +874,8 @@ span {
     }
     .t {
         font-size: 5em; /* Taille ajustée */
+    }
+    .tokoss4 {
+        grid-template-columns: repeat(4, 1fr); /* Conserver 4 colonnes pour Réalisations */
     }
 }
