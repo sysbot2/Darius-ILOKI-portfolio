@@ -28,7 +28,7 @@ header {
     left: 0; /* Aligné à gauche */
     font-family: 'Manrope', sans-serif; /* Police spécifique pour header */
     font-size: 1.5em; /* Taille de police par défaut */
-    background-color: white; /* Fond blanc (corrigé de "beyaz") */
+    background-color: white; /* Fond blanc */
     padding: 10px; /* Espacement interne */
     text-align: center; /* Centre le contenu */
     z-index: 1000; /* Assure que header reste au-dessus des autres éléments */
@@ -56,8 +56,8 @@ main {
     flex-direction: column; /* Contenu aligné verticalement */
     min-height: calc(100vh - 100px); /* Hauteur minimale pour remplir l'écran */
     width: 100%; /* Prend toute la largeur */
-    font-family: 'Manrope', sans-serif; /* Police uniforme comme dans BTS.html */
-    color: black; /* Couleur par défaut comme dans BTS.html */
+    font-family: 'Manrope', sans-serif; /* Police uniforme */
+    color: black; /* Couleur par défaut */
 }
 
 /* Styles pour la vidéo de fond */
@@ -143,7 +143,7 @@ h3, h4, h6 {
 }
 
 /* Appliquer l'animation au texte */
-p, h1, h3, h4, h6, h5, .pro, .site, .ct, .tt, .tkt, .center, .lien, .Contact, .ot1 {
+p, h1, h3, h4, h6, h5, .pro, .site, .ct, .tt, .tkt, .center, .lien, .Contact, .ot1, .box, .vm {
     animation: slide-in 1.5s ease-out; /* Animation de 1.5s avec easing */
 }
 
@@ -193,7 +193,7 @@ p, h1, h3, h4, h6, h5, .pro, .site, .ct, .tt, .tkt, .center, .lien, .Contact, .o
     padding: 16px; /* Espacement interne */
     animation: slide-in 2.5s ease-out; /* Animation plus longue */
     max-width: 100%; /* Empêche le dépassement */
-    display: block;
+    display: block; /* Assure un affichage en bloc */
 }
 
 .occ {
@@ -287,7 +287,7 @@ p, h1, h3, h4, h6, h5, .pro, .site, .ct, .tt, .tkt, .center, .lien, .Contact, .o
     height: 400px; /* Hauteur fixe égale à la largeur */
     margin: 20px auto; /* Centrage horizontal avec marge verticale */
     padding: 8px; /* Réduit l'espacement interne */
-    box-shadow: 6px 6px 15px 10px rgb(245, 244, 244); /* Ombre prononcée */
+    box-shadow: 6px 6px 15px 10px rgb(177, 174, 174); /* Ombre prononcée */
     font-size: 1.2em; /* Réduit légèrement la taille pour plus de texte visible */
     text-align: justify; /* Texte justifié */
     display: block; /* Contrôle strict du contenu */
@@ -310,8 +310,55 @@ p, h1, h3, h4, h6, h5, .pro, .site, .ct, .tt, .tkt, .center, .lien, .Contact, .o
     margin: 20px auto; /* Centrage avec marge */
 }
 
+/* MODIFICATION : Ajustement de .tkt pour la page Veille */
+.tkt {
+    color: black; /* Texte noir par défaut */
+    display: flex; /* Flexbox pour alignement */
+    flex-direction: row; /* Disposition horizontale */
+    flex-wrap: wrap; /* Permet le retour à la ligne */
+    justify-content: space-around; /* Espacement équilibré */
+    flex-grow: 1; /* S'étend dans main */
+    margin-top: 5%; /* Marge haute */
+    gap: 20px; /* Espace entre les articles pour éviter le chevauchement */
+    padding: 20px; /* Padding pour ne pas coller aux bords de la page */
+    width: 100%; /* Pleine largeur pour s'adapter à la taille de la page */
+}
+
 .tkt a {
     color: white; /* Liens blancs dans .tkt */
+}
+
+/* MODIFICATION : Ajustement de .ov pour uniformité et prise en compte de la taille */
+.ov {
+    width: 300px; /* Largeur fixe pour tous les articles */
+    height: 300px; /* Hauteur fixe pour uniformité */
+    border-radius: 50%; /* Forme ronde */
+    margin: 0 auto; /* Centre horizontalement */
+    padding: 16px; /* Espacement interne */
+    animation: slide-in 2.5s ease-out; /* Animation longue */
+    max-width: 100%; /* Empêche le dépassement */
+    display: flex; /* Flexbox pour organiser le contenu interne */
+    flex-direction: column; /* Disposition verticale (titre + image) */
+    align-items: center; /* Centre horizontalement */
+    justify-content: center; /* Centre verticalement */
+    text-align: center; /* Centre le texte */
+}
+
+/* Style pour les titres dans .ov */
+.ov .dh {
+    font-size: 1.2em; /* Taille ajustée pour éviter le débordement */
+    margin: 10px 0; /* Espacement vertical */
+    color: white; /* Texte blanc */
+    word-wrap: break-word; /* Empêche le débordement du titre */
+}
+
+/* Style pour les images dans .ov */
+.ov img {
+    width: 100%; /* Pleine largeur dans le conteneur .ov */
+    height: auto; /* Hauteur ajustée pour conserver les proportions */
+    max-height: 200px; /* Limite la hauteur pour laisser de la place au titre */
+    border-radius: 50%; /* Conserver la forme ronde */
+    object-fit: cover; /* Ajuste l'image pour remplir sans déformer */
 }
 
 .lien {
@@ -343,32 +390,11 @@ p, h1, h3, h4, h6, h5, .pro, .site, .ct, .tt, .tkt, .center, .lien, .Contact, .o
     color: white; /* Texte blanc */
 }
 
-.tkt {
-    color: black; /* Texte noir par défaut */
-    display: flex; /* Flexbox pour alignement */
-    flex-direction: row; /* Disposition horizontale */
-    flex-wrap: wrap; /* Permet le retour à la ligne */
-    justify-content: space-around; /* Espacement équilibré */
-    flex-grow: 1; /* S'étend dans main */
-    margin-top: 5%; /* Marge haute */
-}
-
-.ov {
-    width: 300px; /* Largeur par défaut */
-    height: 300px; /* Hauteur par défaut */
-    border-radius: 50%; /* Forme ronde */
-    margin: 0; /* Supprime les marges */
-    padding: 16px; /* Espacement interne */
-    animation: slide-in 2.5s ease-out; /* Animation longue */
-    margin: auto; /* Centre l'image */
-    max-width: 100%; /* Empêche le dépassement */
-}
-
 /* Conteneur spécifique pour la page Réalisations */
 .tokoss4 {
     background-size: cover; /* Couvre toute la zone */
     display: grid; /* Utilise grid pour garantir 4 blocs par ligne */
-    grid-template-columns: repeat(4, 1fr); /* 4 colonnes de largeur égale pour 2 rangées de 4 */
+    grid-template-columns: repeat(4, 1fr); /* 4 colonnes de largeur égale */
     gap: 2%; /* Espace entre les blocs */
     justify-items: center; /* Centre les éléments horizontalement dans leurs cellules */
     align-items: center; /* Centre les éléments verticalement dans leurs cellules */
@@ -420,11 +446,13 @@ p, h1, h3, h4, h6, h5, .pro, .site, .ct, .tt, .tkt, .center, .lien, .Contact, .o
 /* Styles pour .box (général) */
 .box {
     border: solid 10px rgb(182, 181, 181); /* Bordure grise */
-    width: 45%; /* Ajusté pour 2 blocs côte à côte (moins de 50% pour marges) */
-    margin: 10px 2%; /* Marges uniformes, réduites latéralement */
+    width: 45%; /* Largeur par défaut */
+    margin: 10px 2%; /* Marges latérales pour espacement entre les boîtes */
     box-shadow: 6px 6px 15px 10px rgb(245, 244, 244); /* Ombre portée */
     padding: 16px; /* Espacement interne */
-    max-width: 100%; /* Empêche le dépassement */
+    max-width: 100%; /* Empêche le dépassement de la largeur */
+    overflow-x: hidden; /* Empêche le débordement horizontal */
+    word-wrap: break-word; /* Force le texte à se couper pour rester dans la boîte */
 }
 
 /* Styles spécifiques pour la page Projets et BTS */
@@ -467,7 +495,7 @@ input {
     font-family: 'Manrope', sans-serif; /* Police spécifique */
     font-weight: 400; /* Poids normal */
     padding: 20px; /* Espacement interne */
-    width: 100%; /* Pleine largeur (remplace size="80px") */
+    width: 100%; /* Pleine largeur */
     max-width: 100%; /* Empêche le dépassement */
 }
 
@@ -519,7 +547,7 @@ span {
     width: auto; /* Largeur automatique */
     height: 50px; /* Hauteur fixe */
     text-align: center; /* Centre le texte */
-    box-shadow: 10px 10px 25px 10px rgb(245, 244, 244); /* Ombre augmentée pour page Profil */
+    box-shadow: 10px 10px 25px 10px rgb(245, 244, 244); /* Ombre augmentée */
     border: solid 10px rgb(182, 181, 181); /* Bordure grise */
     border-radius: 50%; /* Forme ronde */
     display: flex; /* Flexbox pour centrage */
@@ -563,16 +591,25 @@ span {
     text-align: justify; /* Texte justifié */
 }
 
+/* Styles pour .ot1 */
 .ot1 {
-    font-size: 1em; /* Taille de police */
+    font-size: 1em; /* Taille de police par défaut */
     font-family: 'Manrope', sans-serif; /* Police spécifique */
     color: black; /* Texte noir */
-    margin: 0; /* Supprime marges */
-    padding: 0; /* Supprime padding */
-    text-align: left; /* Aligné à gauche */
-    line-height: 1.4; /* Hauteur de ligne */
-    word-spacing: normal; /* Espacement des mots */
-    letter-spacing: normal; /* Espacement des lettres */
+    margin: 0; /* Supprime les marges */
+    padding: 0 8px; /* Ajoute un padding latéral pour éviter le débordement */
+    text-align: justify; /* Alignement du texte */
+    line-height: 1.4; /* Hauteur de ligne pour lisibilité */
+    word-wrap: break-word; /* Force le texte à se couper pour rester dans la boîte */
+    overflow-wrap: break-word; /* Compatibilité pour forcer le retour à la ligne */
+}
+
+/* Style spécifique pour les listes dans .ot1 */
+.ot1 ul {
+    margin: 0; /* Supprime les marges par défaut de la liste */
+    padding-left: 20px; /* Indentation standard pour les puces */
+    list-style-position: inside; /* Garde les puces à l'intérieur du conteneur */
+    word-wrap: break-word; /* Assure que les éléments de liste ne débordent pas */
 }
 
 /* Media Queries */
@@ -661,6 +698,27 @@ span {
     .box {
         width: 100%; /* Pleine largeur sur petits écrans */
         margin: 10px 0; /* Marges haut/bas uniquement */
+        padding: 10px; /* Réduit le padding pour plus d'espace */
+        overflow-x: hidden; /* Empêche le débordement horizontal */
+        word-wrap: break-word; /* Force le texte à se couper */
+    }
+    /* MODIFICATION : Ajustement de .tkt pour petits écrans */
+    .tkt {
+        flex-direction: column; /* Disposition verticale */
+        gap: 15px; /* Espace réduit entre articles */
+        padding: 10px; /* Padding réduit */
+    }
+    /* MODIFICATION : Ajustement de .ov pour petits écrans */
+    .ov {
+        width: 200px; /* Réduit la taille pour petits écrans */
+        height: 200px; /* Réduit la hauteur */
+        padding: 10px; /* Padding réduit */
+    }
+    .ov .dh {
+        font-size: 1em; /* Réduit la taille du titre */
+    }
+    .ov img {
+        max-height: 120px; /* Réduit la hauteur de l'image */
     }
     .ecole, .Contact {
         margin-left: 2%; /* Marge réduite */
@@ -688,10 +746,6 @@ span {
     }
     .ot {
         font-size: 1.2em; /* Réduit la taille */
-    }
-    .tkt {
-        flex-direction: column; /* Disposition verticale */
-        width: 100%; /* Pleine largeur */
     }
     .pr {
         margin-left: 1%; /* Marge très réduite pour compacter */
