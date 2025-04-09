@@ -1,106 +1,96 @@
-/* Animation pour déplacer le texte de gauche à droite */
-@keyframes slideIn {
-    0% {
-        transform: translateX(-100vw); /* Commence hors de l'écran, à gauche */
-        opacity: 0; /* Invisible au départ */
-    }
-    100% {
-        transform: translateX(0); /* Position finale */
-        opacity: 1; /* Visible */
-    }
-}
-
-/* Appliquer l'animation à tout le texte de la page */
-h1, p, h3, h6 {
-    animation: slideIn 1.5s ease-out forwards; /* Durée uniforme de 1.5s */
-}
-
-/* Styles globaux pour html et body */
-html, body {
-    height: 100%;
+/* Appliquer box-sizing globalement pour éviter les problèmes de largeur */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Manrope', 'Montserrat', sans-serif;
 }
 
-body {
+/* Style global pour body */
+body, html {
+    background-color: white;
+    background-size: cover;
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Garantit une hauteur minimale pleine écran */
-    background-color: white;
+    min-height: 100vh;
+    font-family: 'Manrope', 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    width: 100vw; /* Utilisation de la pleine largeur de la viewport */
+    height: 100vh; /* Pleine hauteur */
+    margin: 0; /* Supprime toute marge parasite */
 }
 
+/* Styles pour header */
 header {
-    font-family: 'Manrope', sans-serif;
-    font-size: 1.5em;
     background-image: url(images/cs.png);
-    padding: 10px;
-    text-align: center;
+    width: 100vw; /* Pleine largeur */
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.5em;
+    background-color: white;
+    padding: 10px;
+    text-align: center;
     z-index: 1000;
-    min-height: 60px; /* Changé en min-height pour flexibilité */
+    min-height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
 }
 
-/* Ajout de styles pour nav */
+/* Style pour la navigation */
 nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 100%;
+    width: 100%; /* Pleine largeur dans header */
 }
 
-.ok {
-    margin-left: 20px;
-    font-weight: 900;
-    color: white;
-}
-
+/* Styles pour main */
 main {
-    flex: 1; /* Prend tout l'espace disponible entre header et footer */
-    padding-top: 80px; /* Compense la hauteur du header */
+    flex: 1;
+    padding-top: 80px;
     padding-bottom: 20px;
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    box-sizing: border-box;
+    min-height: calc(100vh - 100px);
+    width: 100vw; /* Pleine largeur */
+    font-family: 'Manrope', sans-serif;
+    color: black;
 }
 
+/* Styles pour la vidéo de fond */
 #background-video {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%; /* Couvre toute la hauteur de main */
+    width: 100vw; /* Pleine largeur */
+    height: 100%;
     object-fit: cover;
     z-index: -1;
 }
 
-.accueil {
-    flex: 1; /* S'étend pour remplir main */
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 100%;
-    min-height: calc(100vh - 100px); /* Assure que .accueil remplit l'espace minimum */
+/* Styles pour footer */
+footer {
+    color: white;
+    background-image: url(images/cs.png);
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.5em;
+    width: 100vw; /* Pleine largeur */
+    text-align: center;
+    padding: 20px;
+    flex-shrink: 0;
 }
 
+/* Styles pour les liens (a) */
 a {
     color: white;
     text-decoration: none;
     font-family: 'Manrope', sans-serif;
-}
-
-a:hover {
-    transform: scale(1.2);
-    transition: transform 0.3s ease;
 }
 
 a:visited {
@@ -108,158 +98,792 @@ a:visited {
     font-weight: 900;
 }
 
-a.active {
-    font-weight: bold;
-}
-
-img {
-    text-align: left;
-    margin-left: 20px;
-    width: 30px;
-    height: 30px;
-}
-
-.od {
-    color: white;
+/* Styles pour les paragraphes et h4 */
+p, h4 {
+    margin-left: 4%;
+    margin-right: 4%;
+    color: black;
+    font-size: 1em;
     font-family: 'Manrope', sans-serif;
-    font-size: 3em;
-    font-weight: 900;
+    text-align: justify;
+}
+
+/* Styles pour h2 */
+h2 {
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'Manrope', sans-serif;
+}
+
+/* Styles pour les titres (h1, h3, h4, h6) */
+h1 {
+    background-image: url(images/h1.png);
     margin: 0;
-    padding: 20px; /* Réduit de 70px à 20px pour moins d'espace */
+    padding: 70px;
+    font-size: 5em;
+    font-family: 'Manrope', sans-serif;
+    color: white;
     text-align: center;
 }
 
-.p {
-    color: white;
-    font-family: 'Manrope', sans-serif;
-    font-size: 1.5em; /* Réduit de 2.4em à 1.5em pour un rendu plus compact */
-    font-weight: 900;
-    margin: 0; /* Réduit l'espacement extérieur */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 5px; /* Ajoute un espacement contrôlé entre les éléments enfants */
-}
-
-.d {
-    margin: 0; /* Supprime les marges par défaut des <p> pour un contrôle précis */
-}
-
-h3, h6 {
+h3, h4, h6 {
     margin: 3px;
 }
 
-.nom {
+/* Animation pour déplacer le texte */
+@keyframes slide-in {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Appliquer l'animation au texte */
+p, h1, h3, h4, h6, h5, .pro, .site, .ct, .tt, .tkt, .center, .lien, .Contact, .ot1, .box, .vm {
+    animation: slide-in 1.5s ease-out;
+}
+
+/* Classes personnalisées */
+.ok {
+    margin-left: 20px;
+    font-weight: 900;
     color: white;
 }
 
-.conteneur {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centre le contenu verticalement */
-    align-items: center;
-    flex: 1; /* S'étend pour remplir .accueil */
-    gap: 10px; /* Réduit de 10% à 10px pour un espacement fixe */
-    width: 100%;
-    box-sizing: border-box;
-}
-
-footer {
-    background-image: url(images/cs.png);
+.site {
     font-family: 'Manrope', sans-serif;
-    font-size: 1.5em;
-    padding: 20px;
+    font-size: 1.3em;
+    width: 20%;
+    padding: 10px;
+    border-radius: 50%;
+    border: 2px solid whitesmoke;
+    box-shadow: 6px 6px 30px whitesmoke;
     text-align: center;
-    flex-shrink: 0;
-    width: 100%;
-    box-sizing: border-box;
 }
 
-.tokoss2 {
+.site:hover {
+    color: rgb(45, 214, 214);
+}
+
+/* Styles pour les images rondes */
+.ob, .oc {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin: 0;
+    padding: 16px;
+    animation: slide-in 2.5s ease-out;
+    max-width: 100%;
+}
+
+.ob {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.ob1 {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin: 0 auto;
+    padding: 16px;
+    animation: slide-in 2.5s ease-out;
+    max-width: 100%;
+    display: block;
+}
+
+.occ {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin: 0;
+    padding: 16px;
+    animation: slide-in 2.5s ease-out;
+    margin-left: 20%;
+    max-width: 100%;
+}
+
+.oc {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin: 0;
+    padding: 16px;
+    animation: slide-in 2.5s ease-out;
+    margin-top: 4%;
+    margin-left: 15%;
+    max-width: 100%;
+}
+
+.t, .pro {
+    margin-right: 4%;
+    margin-left: 4%;
+    text-align: center;
+}
+
+.top:hover {
+    opacity: 0.5;
+}
+
+/* Conteneur principal .tokoss */
+.tokoss {
+    background-size: cover;
     color: white;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+    box-shadow: 2px 2px 3px;
+    z-index: 1;
+    flex: 1;
+    width: 100vw; /* Pleine largeur */
+}
+
+/* Flex column conteneur .tokoss3 */
+.tokoss3 {
+    background-size: cover;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    justify-items: center;
+    flex: 1;
+    width: 100vw; /* Pleine largeur */
+}
+
+/* Conteneur flex pour les éléments de .tokoss2 */
+.tokoss2 {
+    background-size: cover;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
+    flex: 1;
+    width: 100vw; /* Pleine largeur */
 }
 
-/* Media Queries pour petits écrans */
+.t {
+    color: white;
+    margin-bottom: 2%;
+    font-size: 2.5em;
+}
+
+.u {
+    color: white;
+    margin-top: 2%;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.vm {
+    border: solid 10px rgb(182, 181, 181);
+    width: 400px;
+    height: 400px;
+    margin: 20px auto;
+    padding: 8px;
+    box-shadow: 6px 6px 15px 10px rgb(177, 174, 174);
+    font-size: 1.2em;
+    text-align: justify;
+    display: block;
+    overflow: auto;
+}
+
+.vm p, .vm .box {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.tokoss4 .vm {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: 400px;
+    height: 400px;
+    margin: 20px auto;
+}
+
+.tkt {
+    color: black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-grow: 1;
+    margin-top: 5%;
+    gap: 20px;
+    padding: 20px;
+    width: 100vw; /* Pleine largeur */
+}
+
+.tkt a {
+    color: white;
+}
+
+.ov {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin: 0 auto;
+    padding: 16px;
+    animation: slide-in 2.5s ease-out;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.ov .dh {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: white;
+    word-wrap: break-word;
+}
+
+.ov img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.lien {
+    margin-top: 5%;
+}
+
+.lien a {
+    background-image: url(images/h1.png);
+    color: white;
+}
+
+.veille {
+    position: relative;
+    flex: 1;
+    width: 100vw; /* Pleine largeur */
+}
+
+.open {
+    border: solid 10px rgb(182, 181, 181);
+    width: 40%;
+    margin: 5px;
+    box-shadow: 6px 6px 15px 10px rgb(245, 244, 244);
+    font-size: 1.4em;
+    max-width: 100%;
+}
+
+.dh {
+    margin-left: 15%;
+    margin-right: 2%;
+    color: white;
+}
+
+.tokoss4 {
+    background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2%;
+    justify-items: center;
+    align-items: center;
+    flex: 1;
+    width: 100vw; /* Pleine largeur */
+    position: relative;
+}
+
+.tokoss4 a {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tokoss4 .ob {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    padding: 16px;
+    animation: slide-in 2.5s ease-out;
+    max-width: 100%;
+}
+
+.tokoss4 h3.dh {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: white;
+}
+
+.tokoss5, .tokoss6 {
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    flex: 1;
+    width: 100vw; /* Pleine largeur */
+    position: relative;
+}
+
+.box {
+    border: solid 10px rgb(182, 181, 181);
+    width: 45%;
+    margin: 10px 2%;
+    box-shadow: 6px 6px 15px 10px rgb(245, 244, 244);
+    padding: 16px;
+    max-width: 100%;
+    overflow-x: hidden;
+    word-wrap: break-word;
+}
+
+.conteneur {
+    font-size: 1.4em;
+    font-family: 'Manrope', sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: nowrap;
+    flex: 1;
+    width: 100vw; /* Pleine largeur */
+    padding: 0 2%;
+}
+
+.ecole {
+    margin-left: 4%;
+    margin-right: 4%;
+    font-size: 1.4em;
+    font-family: 'Manrope', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+textarea {
+    width: 100%;
+    height: auto;
+    min-height: 150px;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+input {
+    font-size: 1.4em;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+}
+
+label {
+    font-weight: bolder;
+}
+
+.Contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    flex: 1;
+    width: 100vw; /* Pleine largeur */
+    min-height: 100%;
+}
+
+.pro {
+    color: white;
+    margin-left: 4%;
+    margin-right: 4%;
+    font-size: 1.4em;
+    font-family: 'Manrope', sans-serif;
+    text-align: center;
+}
+
+.pr {
+    margin-left: 4%;
+    margin-right: 4%;
+    color: black;
+    font-size: 1.4em;
+    font-family: 'Manrope', sans-serif;
+    text-align: justify;
+    flex-grow: 1;
+}
+
+span {
+    font-size: 1em;
+    font-family: 'Manrope', sans-serif;
+    font-weight: bold;
+}
+
+.ct {
+    background-image: url(images/h1.png);
+    font-size: 1.7em;
+    font-family: 'Manrope', sans-serif;
+    font-weight: bolder;
+    width: auto;
+    height: 50px;
+    text-align: center;
+    box-shadow: 10px 10px 25px 10px rgb(245, 244, 244);
+    border: solid 10px rgb(182, 181, 181);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px 20px;
+}
+
+.ct:hover {
+    color: rgb(67, 36, 177);
+}
+
+.bts {
+    background-image: url(images/h1.png);
+    margin: 0;
+    padding: 70px;
+    font-size: 5em;
+    font-family: "Manrope", sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.tt {
+    font-family: 'Manrope', sans-serif;
+    font-size: 2.5em;
+    margin-right: 5%;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+}
+
+.ot {
+    font-size: 1.4em;
+    font-family: 'Manrope', sans-serif;
+    margin-left: 4%;
+    margin-right: 4%;
+    color: black;
+    padding: 16px;
+    text-align: justify;
+}
+
+.ot1 {
+    font-size: 1em;
+    font-family: 'Manrope', sans-serif;
+    color: black;
+    margin: 0;
+    padding: 0 8px;
+    text-align: justify;
+    line-height: 1.4;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.ot1 ul {
+    margin: 0;
+    padding-left: 20px;
+    list-style-position: inside;
+    word-wrap: break-word;
+}
+
+/* Media Queries améliorées */
 @media (max-width: 480px) {
+    body, html {
+        width: 100vw; /* Pleine largeur */
+        margin: 0; /* Supprime toute marge */
+        padding: 0; /* Supprime tout padding */
+    }
     header {
         font-size: 1em;
         padding: 5px;
-        min-height: 50px; /* Ajusté pour flexibilité */
+        min-height: auto;
+        width: 100vw; /* Pleine largeur */
     }
     nav {
-        flex-direction: column; /* Liens en colonne pour éviter le débordement */
+        flex-direction: column;
         align-items: center;
+        width: 100%; /* Pleine largeur */
     }
     .ok {
-        margin-left: 0; /* Supprime la marge horizontale */
-        margin: 5px 0; /* Ajoute une marge verticale */
-        font-size: 1em; /* Réduit la taille pour petits écrans */
+        margin-left: 0;
+        margin: 5px 0;
+        font-size: 1em;
     }
     main {
-        padding-top: 60px; /* Réduit pour correspondre à la hauteur du header */
+        padding-top: 60px;
         padding-bottom: 10px;
-    }
-    .accueil {
-        min-height: calc(100vh - 70px); /* Ajusté pour header + footer réduits */
+        min-height: calc(100vh - 70px);
+        width: 100vw; /* Pleine largeur */
+        padding-left: 0;
+        padding-right: 0;
     }
     footer {
         font-size: 1em;
         padding: 10px;
-    }
-    .od {
-        font-size: 2em; /* Réduit de 2.5em à 2em pour compacter */
-        padding: 10px; /* Réduit de 20px à 10px */
-    }
-    .p {
-        font-size: 0.9em; /* Réduit de 1em à 0.9em pour petits écrans */
-        gap: 3px; /* Réduit l'espacement entre les éléments */
+        width: 100vw; /* Pleine largeur */
+        margin: 0;
     }
     .tokoss2 {
+        width: 100vw; /* Pleine largeur */
+        padding-left: 0;
+        padding-right: 0;
+    }
+    h1 {
+        font-size: 2.5em;
+        padding: 20px;
+    }
+    .site {
+        width: 100%;
+        font-size: 1em;
+    }
+    .ob, .oc, .occ, .ov {
+        width: 150px;
+        height: 150px;
+        padding: 8px;
+    }
+    .tokoss, .tokoss2, .tokoss3, .tokoss4, .tokoss5, .tokoss6 {
         flex-direction: column;
         gap: 10px;
+        width: 100vw; /* Pleine largeur */
+    }
+    .tokoss4 {
+        grid-template-columns: 1fr;
+        width: 100vw; /* Pleine largeur */
+    }
+    .tokoss4 .ob {
+        width: 100px;
+        height: 100px;
+    }
+    .tokoss4 h3.dh {
+        font-size: 0.9em;
+    }
+    .tokoss4 .vm {
+        width: 300px;
+        height: 300px;
+        margin: 10px auto;
     }
     .conteneur {
         flex-direction: column;
-        gap: 5px; /* Réduit de 5px à 3px pour compacter davantage */
+        gap: 10px;
+        padding: 0;
+        width: 100vw; /* Pleine largeur */
+    }
+    .box {
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+        overflow-x: hidden;
+        word-wrap: break-word;
+    }
+    .tkt {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px;
+        width: 100vw; /* Pleine largeur */
+    }
+    .ov {
+        width: 200px;
+        height: 200px;
+        padding: 10px;
+    }
+    .ov .dh {
+        font-size: 1em;
+    }
+    .ov img {
+        max-height: 120px;
+    }
+    .ecole, .Contact {
+        margin-left: 0; /* Supprime marges latérales */
+        margin-right: 0; /* Supprime marges latérales */
+        font-size: 1.1em;
+        width: 100vw; /* Pleine largeur */
+    }
+    .conta, form {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    input, textarea {
+        width: 100%;
+        font-size: 1em;
+        padding: 10px;
+    }
+    .t {
+        font-size: 1.5em;
+    }
+    .ot {
+        font-size: 1.2em;
+    }
+    .pr {
+        margin-left: 0; /* Supprime marges latérales */
+        margin-right: 0; /* Supprime marges latérales */
+        font-size: 1.1em;
+        padding: 5px;
+    }
+    .conteneur, .open {
+        width: 100vw; /* Pleine largeur */
     }
 }
 
-/* Media Queries pour tablettes */
+/* Orientation paysage sur petits écrans */
+@media (max-width: 767px) and (orientation: landscape) {
+    body, html {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        width: 100vw;
+    }
+    main {
+        width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    footer {
+        width: 100vw;
+    }
+    .tokoss, .tokoss2, .tokoss3, .tokoss4, .tokoss5, .tokoss6 {
+        width: 100vw;
+    }
+    .tkt {
+        width: 100vw;
+    }
+    .conteneur {
+        width: 100vw;
+    }
+    .ecole, .Contact {
+        width: 100vw;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+/* Écrans moyens */
 @media (min-width: 481px) and (max-width: 767px) {
+    body, html {
+        width: 100vw;
+        padding: 0;
+    }
     header {
         font-size: 1.2em;
         padding: 8px;
+        width: 100vw;
     }
-    .od {
-        font-size: 2.5em; /* Ajusté pour tablettes */
-        padding: 15px; /* Réduit pour compacter */
+    main {
+        padding-top: 70px;
+        padding-bottom: 15px;
+        min-height: calc(100vh - 85px);
+        width: 100vw;
     }
-    .p {
+    footer {
         font-size: 1.2em;
-        gap: 5px; /* Espacement contrôlé */
+        padding: 15px;
+        width: 100vw;
+    }
+    h1 {
+        font-size: 3em;
+        padding: 30px;
+    }
+    .site {
+        width: 80%;
+        font-size: 1.1em;
+    }
+    .ob, .oc, .occ, .ov {
+        width: 200px;
+        height: 200px;
+    }
+    .tokoss, .tokoss2, .tokoss3, .tokoss4, .tokoss5, .tokoss6 {
+        flex-direction: column;
+        gap: 15px;
+        width: 100vw;
+    }
+    .tokoss4 {
+        grid-template-columns: 1fr;
+        width: 100vw;
     }
     .conteneur {
         flex-direction: column;
-        gap: 8px; /* Ajusté pour tablettes */
+        gap: 15px;
+        width: 100vw;
+    }
+    .box {
+        width: 100%;
+        margin: 10px 0;
+    }
+    .t {
+        font-size: 1.8em;
+    }
+    .ot {
+        font-size: 1.3em;
     }
 }
 
-/* Media Queries pour écrans moyens */
+/* Tablettes */
 @media (min-width: 768px) and (max-width: 1023px) {
+    body, html {
+        width: 100vw;
+        padding: 0;
+    }
     header {
         font-size: 1.3em;
+        padding: 10px;
+        width: 100vw;
     }
-    .od {
-        font-size: 3em; /* Réduit légèrement */
-        padding: 20px; /* Ajusté */
+    main {
+        padding-top: 80px;
+        padding-bottom: 20px;
+        width: 100vw;
     }
-    .p {
+    footer {
         font-size: 1.3em;
-        gap: 8px; /* Espacement contrôlé */
+        padding: 20px;
+        width: 100vw;
+    }
+    h1 {
+        font-size: 3.5em;
+        padding: 40px;
+    }
+    .site {
+        width: 50%;
+    }
+    .ob, .oc, .occ, .ov {
+        width: 250px;
+        height: 250px;
+    }
+    .tokoss, .tokoss2, .tokoss3, .tokoss5, .tokoss6 {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+        width: 100vw;
+    }
+    .tokoss4 {
+        grid-template-columns: repeat(4, 1fr);
+        width: 100vw;
+    }
+    .conteneur {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 20px;
+        width: 100vw;
+    }
+    .box {
+        width: 45%;
+        margin: 10px 2%;
+    }
+    .t {
+        font-size: 2em;
     }
 }
