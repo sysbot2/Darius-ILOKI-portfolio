@@ -1,6 +1,8 @@
 /* Appliquer box-sizing globalement pour éviter les problèmes de largeur */
 * {
     box-sizing: border-box; /* Inclut padding et bordures dans les dimensions */
+    margin: 0;
+    padding: 0; /* Supprime les marges et paddings par défaut */
 }
 
 /* Style global pour body */
