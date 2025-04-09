@@ -533,6 +533,7 @@ label {
     font-family: 'Manrope', sans-serif; /* Police spécifique */
     text-align: justify; /* Texte justifié */
     flex-grow: 1; /* S'étend dans main */
+    margin-top: 35px;
 }
 
 span {
@@ -556,7 +557,7 @@ span {
     align-items: center; /* Centre verticalement */
     justify-content: center; /* Centre horizontalement */
     margin: 10px; /* Espacement entre boutons */
-    padding: 10px 20px; /* Padding ajusté pour plus d'espace interne */
+    padding: 53px 34px; /* Padding ajusté pour plus d'espace interne */
 }
 
 .ct:hover {
@@ -604,6 +605,7 @@ span {
     line-height: 1.4; /* Hauteur de ligne pour lisibilité */
     word-wrap: break-word; /* Force le texte à se couper pour rester dans la boîte */
     overflow-wrap: break-word; /* Compatibilité pour forcer le retour à la ligne */
+    margin-left: 21px;
 }
 
 /* Style spécifique pour les listes dans .ot1 */
@@ -612,6 +614,11 @@ span {
     padding-left: 20px; /* Indentation standard pour les puces */
     list-style-position: inside; /* Garde les puces à l'intérieur du conteneur */
     word-wrap: break-word; /* Assure que les éléments de liste ne débordent pas */
+
+}
+.definition-slam{
+    margin-left: 0;
+    font-size: 20px;
 }
 
 /* Media Queries */
@@ -754,6 +761,7 @@ span {
         margin-right: 1%; /* Marge très réduite pour compacter */
         font-size: 1.1em; /* Taille réduite pour compacter davantage */
         padding: 5px; /* Réduit le padding pour rapprocher le contenu */
+    
     }
     .conteneur, .open {
         width: 100%; /* Pleine largeur */
