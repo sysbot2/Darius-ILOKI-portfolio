@@ -617,6 +617,8 @@ span {
 
 }
 .definition-slam{
+    font-size: 1.4em; /* Taille de police */
+    font-family: 'Manrope', sans-serif; /* Police spécifique */
     margin-left: 0;
     font-size: 20px;
 }
